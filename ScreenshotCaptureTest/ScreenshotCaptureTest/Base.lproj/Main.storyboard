@@ -1,24 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScreenshotCaptureTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="75Q-my-d95">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2b-Ph-pMF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="350"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfS-9f-mGd">
+                                        <rect key="frame" x="359" y="30" width="25" height="16.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="JS8-ka-ck6"/>
+                                            <constraint firstAttribute="width" secondItem="YfS-9f-mGd" secondAttribute="height" multiplier="1.5:1" id="dBc-oH-Kxy"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="checkmark" catalog="system">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="captureBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K9w-na-Hl3"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#카페라떼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGs-CN-6e6">
+                                        <rect key="frame" x="172.5" y="91" width="69.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.02.18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p34-39-1e5">
+                                        <rect key="frame" x="174.5" y="60" width="65.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffee" translatesAutoresizingMaskIntoConstraints="NO" id="cCx-dR-gYs">
+                                        <rect key="frame" x="107" y="132" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="cCx-dR-gYs" secondAttribute="height" id="XsG-hQ-cGm"/>
+                                            <constraint firstAttribute="width" constant="200" id="qBj-Dg-Ysn"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="p34-39-1e5" firstAttribute="top" secondItem="K2b-Ph-pMF" secondAttribute="top" constant="60" id="80Y-hk-sWb"/>
+                                    <constraint firstItem="YfS-9f-mGd" firstAttribute="top" secondItem="K2b-Ph-pMF" secondAttribute="top" constant="30" id="HQc-LZ-UxE"/>
+                                    <constraint firstItem="cCx-dR-gYs" firstAttribute="top" secondItem="BGs-CN-6e6" secondAttribute="bottom" constant="20" id="IuK-Hn-Dwv"/>
+                                    <constraint firstAttribute="trailing" secondItem="YfS-9f-mGd" secondAttribute="trailing" constant="30" id="LP2-2R-VgL"/>
+                                    <constraint firstItem="BGs-CN-6e6" firstAttribute="top" secondItem="p34-39-1e5" secondAttribute="bottom" constant="10" id="M0T-Hc-aJ3"/>
+                                    <constraint firstItem="cCx-dR-gYs" firstAttribute="centerX" secondItem="K2b-Ph-pMF" secondAttribute="centerX" id="Wya-dH-K5f"/>
+                                    <constraint firstItem="BGs-CN-6e6" firstAttribute="centerX" secondItem="K2b-Ph-pMF" secondAttribute="centerX" id="d5K-Xt-xiH"/>
+                                    <constraint firstItem="p34-39-1e5" firstAttribute="centerX" secondItem="K2b-Ph-pMF" secondAttribute="centerX" id="i2k-MF-g8x"/>
+                                    <constraint firstAttribute="height" constant="350" id="yX3-X6-Bug"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86f-Tp-ssb">
+                                <rect key="frame" x="30" y="394" width="354" height="468"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hF8-Nr-IRf">
+                                        <rect key="frame" x="10" y="40" width="35" height="2"/>
+                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="2Wh-q0-zZ8"/>
+                                            <constraint firstAttribute="width" constant="35" id="RSe-ZC-wTw"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="커피에 담긴 순간을 기록해보세요" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uj2-8b-sEP">
+                                        <rect key="frame" x="10" y="67" width="334" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Uj2-8b-sEP" firstAttribute="leading" secondItem="86f-Tp-ssb" secondAttribute="leading" constant="10" id="0ml-sd-ePr"/>
+                                    <constraint firstItem="Uj2-8b-sEP" firstAttribute="top" secondItem="hF8-Nr-IRf" secondAttribute="bottom" constant="25" id="CjJ-Qm-cou"/>
+                                    <constraint firstItem="hF8-Nr-IRf" firstAttribute="leading" secondItem="86f-Tp-ssb" secondAttribute="leading" constant="10" id="Etf-dB-AXV"/>
+                                    <constraint firstItem="hF8-Nr-IRf" firstAttribute="top" secondItem="86f-Tp-ssb" secondAttribute="top" constant="40" id="hZq-oj-WHo"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uj2-8b-sEP" secondAttribute="trailing" constant="10" id="yJA-41-Nsh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="86f-Tp-ssb" firstAttribute="top" secondItem="K2b-Ph-pMF" secondAttribute="bottom" id="8jG-m0-tiX"/>
+                            <constraint firstItem="K2b-Ph-pMF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OON-VP-xqg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="75Q-my-d95" secondAttribute="trailing" id="PDA-Xc-Nnf"/>
+                            <constraint firstItem="K2b-Ph-pMF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RQY-gN-hnO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="86f-Tp-ssb" secondAttribute="bottom" id="X5k-sy-qXK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K2b-Ph-pMF" secondAttribute="trailing" id="Zsl-3K-UcI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="86f-Tp-ssb" secondAttribute="trailing" constant="30" id="bWf-JT-kgq"/>
+                            <constraint firstItem="75Q-my-d95" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gPW-FJ-pWg"/>
+                            <constraint firstItem="75Q-my-d95" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jMt-e4-WKH"/>
+                            <constraint firstAttribute="bottom" secondItem="75Q-my-d95" secondAttribute="bottom" id="mKV-F8-KRj"/>
+                            <constraint firstItem="86f-Tp-ssb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="sze-Lv-G0h"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundShadowView" destination="8bC-Xf-vdC" id="LsE-BH-veX"/>
+                        <outlet property="captureBtn" destination="YfS-9f-mGd" id="5EU-a9-lmV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg2" width="440" height="690"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="coffee" width="606" height="614"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
