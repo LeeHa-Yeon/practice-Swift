@@ -10,6 +10,8 @@ import Photos
 
 class ViewController: UIViewController {
     
+    var screenShotImgView: UIImage?
+    
     @IBOutlet weak var captureBtn: UIButton!
     @IBOutlet var backgroundShadowView: UIView!
     
@@ -29,12 +31,30 @@ class ViewController: UIViewController {
             false,
             2
         )
-
+        
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-
+        
+        screenShotImgView = screenshot
+        shareAction()
+        
         UIImageWriteToSavedPhotosAlbum(screenshot, self, #selector(imageWasSaved), nil)
+    }
+    
+    // 공유하는 함수
+    func shareAction(){
+        var objectsToShare = [UIImage]()
+        if let image = screenShotImgView {
+            objectsToShare.append(image)
+        }
+        
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        
+        // 공유하기 기능 중 제외할 기능이 있을 때 사용
+        //        activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     // MARK: - Actions
@@ -43,10 +63,12 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
             return
         }
-
+        
         print("Image was saved in the photo gallery")
-        UIApplication.shared.open(URL(string:"photos-redirect://")!)
+//        UIApplication.shared.open(URL(string:"photos-redirect://")!)
     }
+    
+    
     
 }
 
