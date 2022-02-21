@@ -20,7 +20,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kzz-8e-xj5">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gQt-60-72M">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gQt-60-72M">
                                     <size key="itemSize" width="233" height="163"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -40,6 +40,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.89276060359999998" green="0.88844775040000001" blue="0.89707345670000005" alpha="0.905431078" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="bnx-Jo-bag" secondAttribute="trailing" constant="30" id="2qA-m9-uXP"/>
                                                 <constraint firstItem="bnx-Jo-bag" firstAttribute="centerY" secondItem="itx-GM-PUG" secondAttribute="centerY" id="BP7-l2-GZ0"/>
@@ -62,16 +63,26 @@
                                     <action selector="saveBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kAp-hO-3W5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRc-j2-l8F">
+                                <rect key="frame" x="354" y="772" width="30" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="addBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NVp-e9-nwC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZH3-Ey-RRc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9B1-Ds-8Qh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZH3-Ey-RRc" secondAttribute="bottom" constant="60" id="AXO-1z-rcY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bRc-j2-l8F" secondAttribute="trailing" constant="30" id="BG9-v9-aQd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kzz-8e-xj5" secondAttribute="bottom" id="JLU-5D-cPK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kzz-8e-xj5" secondAttribute="trailing" id="acf-bR-CJn"/>
                             <constraint firstItem="kzz-8e-xj5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gCT-jp-uzf"/>
                             <constraint firstItem="kzz-8e-xj5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vIR-H9-0cf"/>
+                            <constraint firstItem="bRc-j2-l8F" firstAttribute="bottom" secondItem="ZH3-Ey-RRc" secondAttribute="bottom" id="zxw-oB-dm1"/>
                         </constraints>
                     </view>
                     <connections>
