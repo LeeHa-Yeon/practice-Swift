@@ -44,7 +44,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lnh-A4-8KR">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calendarCell" id="lnh-A4-8KR" customClass="CalendarCell" customModule="CustomCalendar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pfl-yx-SYj">
@@ -91,6 +91,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h3T-8F-G0a" secondAttribute="trailing" constant="15" id="yRg-Fi-AIR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="h3T-8F-G0a" id="MSr-vj-UgV"/>
+                        <outlet property="monthLabel" destination="e55-Q7-9wy" id="obv-Sd-bDj"/>
+                        <outlet property="yearLabel" destination="au1-LR-8Qo" id="ZSP-3e-K9i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
