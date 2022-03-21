@@ -13,6 +13,9 @@
 		9F6AAA1C27E8B6D4008CE72F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F6AAA1A27E8B6D4008CE72F /* Main.storyboard */; };
 		9F6AAA1E27E8B6D5008CE72F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F6AAA1D27E8B6D5008CE72F /* Assets.xcassets */; };
 		9F6AAA2127E8B6D5008CE72F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F6AAA1F27E8B6D5008CE72F /* LaunchScreen.storyboard */; };
+		9F6AAA2927E8B7CA008CE72F /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F6AAA2827E8B7CA008CE72F /* AlertView.xib */; };
+		9F6AAA2B27E8E87D008CE72F /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6AAA2A27E8E87D008CE72F /* AlertView.swift */; };
+		9F6AAA2E27E8EE14008CE72F /* Goyang.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F6AAA2D27E8EE0E008CE72F /* Goyang.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		9F6AAA1D27E8B6D5008CE72F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F6AAA2027E8B6D5008CE72F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F6AAA2227E8B6D5008CE72F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F6AAA2827E8B7CA008CE72F /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		9F6AAA2A27E8E87D008CE72F /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		9F6AAA2D27E8EE0E008CE72F /* Goyang.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Goyang.otf; path = ../../CustomCalendar/CustomCalendar/Resources/Fonts/Goyang.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,26 @@
 		9F6AAA1327E8B6D4008CE72F /* CustomAlert */ = {
 			isa = PBXGroup;
 			children = (
+				9F6AAA1F27E8B6D5008CE72F /* LaunchScreen.storyboard */,
 				9F6AAA1427E8B6D4008CE72F /* AppDelegate.swift */,
 				9F6AAA1627E8B6D4008CE72F /* SceneDelegate.swift */,
 				9F6AAA1827E8B6D4008CE72F /* ViewController.swift */,
 				9F6AAA1A27E8B6D4008CE72F /* Main.storyboard */,
+				9F6AAA2C27E8E887008CE72F /* AlertView */,
 				9F6AAA1D27E8B6D5008CE72F /* Assets.xcassets */,
-				9F6AAA1F27E8B6D5008CE72F /* LaunchScreen.storyboard */,
 				9F6AAA2227E8B6D5008CE72F /* Info.plist */,
+				9F6AAA2D27E8EE0E008CE72F /* Goyang.otf */,
 			);
 			path = CustomAlert;
+			sourceTree = "<group>";
+		};
+		9F6AAA2C27E8E887008CE72F /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				9F6AAA2A27E8E87D008CE72F /* AlertView.swift */,
+				9F6AAA2827E8B7CA008CE72F /* AlertView.xib */,
+			);
+			path = AlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +143,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F6AAA2127E8B6D5008CE72F /* LaunchScreen.storyboard in Resources */,
+				9F6AAA2E27E8EE14008CE72F /* Goyang.otf in Resources */,
+				9F6AAA2927E8B7CA008CE72F /* AlertView.xib in Resources */,
 				9F6AAA1E27E8B6D5008CE72F /* Assets.xcassets in Resources */,
 				9F6AAA1C27E8B6D4008CE72F /* Main.storyboard in Resources */,
 			);
@@ -139,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F6AAA1927E8B6D4008CE72F /* ViewController.swift in Sources */,
+				9F6AAA2B27E8E87D008CE72F /* AlertView.swift in Sources */,
 				9F6AAA1527E8B6D4008CE72F /* AppDelegate.swift in Sources */,
 				9F6AAA1727E8B6D4008CE72F /* SceneDelegate.swift in Sources */,
 			);

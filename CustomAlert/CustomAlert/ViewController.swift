@@ -8,10 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBAction func testBtn(_ sender: Any) {
+        let customView = AlertView()
+        view.addSubview(customView)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
 
