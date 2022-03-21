@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBAction func testBtn(_ sender: Any) {
         let customView = AlertView()
+        customView.showAlert(firstBtnTitle: "취소", secondBtnTitle: "확인")
         view.addSubview(customView)
     }
     

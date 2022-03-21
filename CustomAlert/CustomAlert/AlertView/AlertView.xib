@@ -14,7 +14,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertView" customModule="CustomAlert" customModuleProvider="target">
             <connections>
+                <outlet property="cancleButton" destination="DZn-vo-Enu" id="1gp-bO-0Cc"/>
                 <outlet property="customView" destination="iN0-l3-epB" id="PPe-N7-LQZ"/>
+                <outlet property="okButton" destination="QJy-Q8-OFn" id="28y-z2-grH"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
