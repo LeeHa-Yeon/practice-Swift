@@ -81,6 +81,7 @@ class AlertView: UIView {
     func showAlert(firstBtnTitle: String? = nil, secondBtnTitle: String? = nil){
         cancleButton.setTitle(firstBtnTitle, for: .normal)
         okButton.setTitle(secondBtnTitle, for: .normal)
+    
     }
     
 }

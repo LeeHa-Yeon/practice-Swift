@@ -16,8 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var mainView: UIView!
     
     @IBAction func testBtn(_ sender: Any) {
-        let customView = AlertView()
-        customView.layer.zPosition = 999;
+        let customView = AlertView(frame: view.bounds)
         customView.showAlert(firstBtnTitle: "취소", secondBtnTitle: "확인")
         view.addSubview(customView)
     }
