@@ -16,7 +16,9 @@
             <connections>
                 <outlet property="cancleButton" destination="DZn-vo-Enu" id="1gp-bO-0Cc"/>
                 <outlet property="customView" destination="iN0-l3-epB" id="PPe-N7-LQZ"/>
+                <outlet property="monthPickerView" destination="gMB-ks-TgW" id="POI-Ul-Cpl"/>
                 <outlet property="okButton" destination="QJy-Q8-OFn" id="28y-z2-grH"/>
+                <outlet property="yearPickerView" destination="Nrn-mj-tON" id="3cN-r3-8tx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,13 +26,13 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cY-Ws-5Rr">
+                <visualEffectView opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cY-Ws-5Rr">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jz8-dr-F9W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
-                    <blurEffect style="regular"/>
+                    <blurEffect style="dark"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yo6-sF-TYy">
                     <rect key="frame" x="69.5" y="333" width="275" height="230"/>
@@ -74,6 +76,9 @@
                                     <state key="normal" title="취소">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancleBtnTapped:" destination="-1" eventType="touchUpInside" id="gaY-8h-ubm"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJy-Q8-OFn">
                                     <rect key="frame" x="137.5" y="0.0" width="137.5" height="50"/>
