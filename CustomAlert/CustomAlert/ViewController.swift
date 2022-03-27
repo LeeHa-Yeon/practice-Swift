@@ -7,68 +7,40 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
-    var monthArr: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12]
-    
-    @IBOutlet weak var testPickView: UIPickerView!
-    
-    @IBOutlet var mainView: UIView!
     
     @IBAction func testBtn(_ sender: Any) {
-        let customView = AlertView(frame: view.bounds)
-        customView.showAlert(firstBtnTitle: "취소", secondBtnTitle: "확인")
-        view.addSubview(customView)
+        let customView2 = AlertView(frame: view.bounds)
+//        customView2.popupAlert(content: "로그인 없이 사용할 경우,\n앱 재설치 및 기기 변경 시\n기존 데이터가 사라집니다.",myView: customView2)
+        customView2.popupAlert(firstBtnTitle: "취소", secondBtnTitle: "회원가입", content: "회원가입이 필요한 서비스입니다.",myView: customView2)
+//        customView2.calendarAlert(currentYear: "2022", currentMonth: "5",myView: customView2)
+        customView2.delegate = self
+        view.addSubview(customView2)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        testPickView.delegate = self
-        testPickView.dataSource = self
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
 }
 
+protocol AlertViewDelegate {
+    func cancleButtonTapped(_ sender: UIButton,_ test: UIView)
+    func okButtonTapped(_ sender: UIButton, _ test: UIView)
+}
 
-extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    // 피커뷰의 구성요소(컬럼) 수
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+extension ViewController: AlertViewDelegate {
+    func cancleButtonTapped(_ sender: UIButton, _ test: UIView) {
+        test.removeFromSuperview()
     }
     
-    // 높이
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 40
+    func okButtonTapped(_ sender: UIButton, _ test: UIView) {
+        test.removeFromSuperview()
     }
-    
-    // 구성요소(컬럼)의 행수
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return monthArr.count
-    }
-    
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-
-        var pickerLabel: UILabel? = (view as? UILabel)
-        if pickerLabel == nil {
-            pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "Goyang", size: 14)
-            pickerLabel?.textAlignment = .center
-        }
-        
-        pickerLabel?.text = "\(monthArr[row])월"
-        
-        return pickerLabel!
-    }
-    
-    
-    //     피커뷰에서 선택시 호출
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("dfdf")
-        print(monthArr[row])
-    }
-    
-    
     
 }

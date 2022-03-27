@@ -5,23 +5,29 @@
 //  Created by 이하연 on 2022/03/22.
 //
 
-import Foundation
 import UIKit
+
 
 class AlertView: UIView {
     
+    public var delegate: AlertViewDelegate?
+    
     var yearArr: [Int] = [2021,2022,2023]
     var monthArr: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12]
+    var testUIView: UIView!
     
     @IBOutlet var customView: UIView!
     @IBOutlet weak var yearPickerView: UIPickerView!
     @IBOutlet weak var monthPickerView: UIPickerView!
+    
+    @IBOutlet weak var calendarView: UIView!
+    @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var contentLabel: UILabel!
+    
     @IBOutlet weak var cancleButton: UIButton!
     @IBOutlet weak var okButton: UIButton!
+
     
-    @IBAction func cancleBtnTapped(_ sender: Any) {
-        print("클릭이 되고있니..?")
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +42,17 @@ class AlertView: UIView {
         super.init(coder: aDecoder)
         commonInit()
     }
+    
+    @IBAction func closeTapped(_ sender: UIButton) {
+        self.delegate?.cancleButtonTapped(sender, testUIView)
+        print("이이이")
+    }
+    
+    @IBAction func okTapped(_ sender: UIButton) {
+        self.delegate?.okButtonTapped(sender,testUIView)
+        print("해해해해")
+    }
+
     
     
     // autoresizingMask로 모든 화면에 맞춰줌
@@ -78,13 +95,27 @@ class AlertView: UIView {
     }
     
     
-    func showAlert(firstBtnTitle: String? = nil, secondBtnTitle: String? = nil){
+    func popupAlert(firstBtnTitle: String? = "취소", secondBtnTitle: String? = "확인", content: String, myView: UIView){
         cancleButton.setTitle(firstBtnTitle, for: .normal)
         okButton.setTitle(secondBtnTitle, for: .normal)
-    
+        contentLabel.text = content
+        
+        calendarView.isHidden = true
+        popupView.isHidden = false
+        testUIView = myView
     }
     
+    func calendarAlert(currentYear: String, currentMonth: String, myView: UIView){
+        cancleButton.setTitle("취소", for: .normal)
+        okButton.setTitle("확인", for: .normal)
+        
+        calendarView.isHidden = false
+        popupView.isHidden = true
+        
+        testUIView = myView
+    }
 }
+
 
 extension AlertView: UIPickerViewDataSource, UIPickerViewDelegate {
     // 피커뷰의 구성요소(컬럼) 수
@@ -106,17 +137,6 @@ extension AlertView: UIPickerViewDataSource, UIPickerViewDelegate {
         }
         return 0
     }
-    
-    //     피커뷰에 보여줄 값 전달
-    //    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    //        print("우웅ㄹ")
-    //        if pickerView == yearPickerView {
-    //            return "\(yearArr[row])년"
-    //        } else if pickerView == monthPickerView {
-    //            return "\(monthArr[row])월"
-    //        }
-    //        return ""
-    //    }
     
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -140,7 +160,11 @@ extension AlertView: UIPickerViewDataSource, UIPickerViewDelegate {
     
     //  피커뷰에서 선택시 호출
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("잘 선택되고있니..?ㅠㅠㅠ")
+        if pickerView == yearPickerView {
+            print(yearArr[row])
+        } else if pickerView == monthPickerView {
+            print(monthArr[row])
+        }
     }
     
 }
