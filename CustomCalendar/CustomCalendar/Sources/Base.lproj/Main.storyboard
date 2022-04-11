@@ -64,14 +64,29 @@
                                                         <constraint firstAttribute="width" constant="23" id="qma-a7-asP"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Dn-Px-6Jv">
+                                                    <rect key="frame" x="64.5" y="49" width="39" height="30"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="테스트"/>
+                                                    <connections>
+                                                        <action selector="moveToVC:" destination="lnh-A4-8KR" eventType="touchUpInside" id="Zcs-hR-n5b"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="8Dn-Px-6Jv" firstAttribute="centerX" secondItem="pfl-yx-SYj" secondAttribute="centerX" constant="20" id="3l7-zW-5zR"/>
                                                 <constraint firstItem="Kvq-gT-Gr0" firstAttribute="centerX" secondItem="pfl-yx-SYj" secondAttribute="centerX" id="IN3-Xa-ahl"/>
                                                 <constraint firstItem="j38-lG-vOR" firstAttribute="centerX" secondItem="pfl-yx-SYj" secondAttribute="centerX" id="LOl-tW-cyM"/>
+                                                <constraint firstItem="8Dn-Px-6Jv" firstAttribute="centerY" secondItem="pfl-yx-SYj" secondAttribute="centerY" id="Vzv-ap-GHz"/>
                                                 <constraint firstItem="Kvq-gT-Gr0" firstAttribute="centerY" secondItem="pfl-yx-SYj" secondAttribute="centerY" id="ap3-MJ-FxX"/>
                                                 <constraint firstItem="j38-lG-vOR" firstAttribute="centerY" secondItem="pfl-yx-SYj" secondAttribute="centerY" id="n7t-4V-uxB"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="coffeeImage" destination="Kvq-gT-Gr0" id="TPy-q8-fi3"/>
+                                            <outlet property="dayOfMonth" destination="j38-lG-vOR" id="ayp-gL-GYf"/>
+                                            <outlet property="testBtn" destination="8Dn-Px-6Jv" id="lb0-FF-U1w"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -92,20 +107,38 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="h3T-8F-G0a" id="MSr-vj-UgV"/>
-                        <outlet property="monthLabel" destination="e55-Q7-9wy" id="obv-Sd-bDj"/>
-                        <outlet property="yearLabel" destination="au1-LR-8Qo" id="ZSP-3e-K9i"/>
+                        <outlet property="collectionView" destination="h3T-8F-G0a" id="EoJ-VM-dry"/>
+                        <outlet property="monthLabel" destination="e55-Q7-9wy" id="c0I-ZL-84M"/>
+                        <outlet property="yearLabel" destination="au1-LR-8Qo" id="ZnC-cC-iy3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-10" y="131"/>
         </scene>
+        <!--Main View Controller-->
+        <scene sceneID="pc8-bs-efE">
+            <objects>
+                <viewController storyboardIdentifier="MainSB" id="8KO-7T-LlQ" customClass="MainViewController" customModule="CustomCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5HG-rT-bh4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zsH-Lw-bCs"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k1u-Sw-fd9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645" y="142"/>
+        </scene>
     </scenes>
     <resources>
         <image name="coffee" width="955" height="931"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

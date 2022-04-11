@@ -15,6 +15,10 @@ class AlertView: UIView {
     var yearArr: [Int] = [2021,2022,2023]
     var monthArr: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12]
     var testUIView: UIView!
+    var okButtonTag: Int = 0
+    
+    var selectYear: String = ""
+    var selectMonth: String = ""
     
     @IBOutlet var customView: UIView!
     @IBOutlet weak var yearPickerView: UIPickerView!
@@ -44,12 +48,17 @@ class AlertView: UIView {
     }
     
     @IBAction func closeTapped(_ sender: UIButton) {
-        self.delegate?.cancleButtonTapped(sender, testUIView)
+        self.delegate?.cancleButtonTapped(testUIView)
         print("이이이")
     }
     
     @IBAction func okTapped(_ sender: UIButton) {
-        self.delegate?.okButtonTapped(sender,testUIView)
+        self.delegate?.okButtonTapped(testUIView)
+        
+        if okButtonTag == 1 {
+            self.delegate?.selectDateAction()
+        }
+        
         print("해해해해")
     }
 
@@ -72,13 +81,17 @@ class AlertView: UIView {
     }
     
     func setPickerView(){
-        
         yearPickerView.delegate = self
         yearPickerView.dataSource = self
         monthPickerView.delegate = self
         monthPickerView.dataSource = self
+        
         selectedPickerViewUICustom(yearPickerView)
         selectedPickerViewUICustom(monthPickerView)
+        let yearIdx = yearArr.firstIndex {
+            $0 == 2023
+        }
+        yearPickerView.selectRow(yearIdx!, inComponent:0, animated:true)
     }
     
     func selectedPickerViewUICustom(_ selectedPickerView: UIPickerView) {
@@ -113,6 +126,16 @@ class AlertView: UIView {
         popupView.isHidden = true
         
         testUIView = myView
+    }
+    
+    func changeDate(){
+        let dateString:String = "\(selectYear)-\(selectMonth)-01 00:00:00"
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+
+        let date:Date = dateFormatter.date(from: dateString)!
     }
 }
 
@@ -161,9 +184,15 @@ extension AlertView: UIPickerViewDataSource, UIPickerViewDelegate {
     //  피커뷰에서 선택시 호출
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == yearPickerView {
-            print(yearArr[row])
+            selectYear = "\(yearArr[row])"
+            print(selectYear)
         } else if pickerView == monthPickerView {
-            print(monthArr[row])
+            if monthArr[row] > 0 && monthArr[row] < 10 {
+                selectMonth = "0\(monthArr[row])"
+            }else {
+                selectMonth = "\(monthArr[row])"
+            }
+            print(selectMonth)
         }
     }
     
