@@ -192,8 +192,9 @@ class CharacterViewController: UIViewController {
         }
         
         choseStackView.snp.makeConstraints{
-            $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(50)
+            $0.top.equalToSuperview().inset(38)
+            $0.leading.trailing.equalToSuperview().inset(24)
+            $0.height.equalTo(34)
         }
         profileContainerView.snp.makeConstraints{
             $0.top.equalTo(choseStackView.snp.bottom)
