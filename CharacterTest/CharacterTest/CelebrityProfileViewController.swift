@@ -11,45 +11,113 @@ import SnapKit
 
 class CelebrityProfileViewController: UIViewController {
     
-    lazy var collectionView = UICollectionView().then {
-        $0.delegate = self
-        $0.dataSource = self
+    //MARK: - UI Components
+        lazy var scrollView = UIScrollView().then {
+            $0.addSubview(contentView)
+            $0.isScrollEnabled = true
+        }
+    
+    lazy var contentView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .equalSpacing
+        $0.spacing = 30
+        $0.addArrangedSubview(firstStackView)
+        $0.addArrangedSubview(secondStackView)
     }
-
+    
+    lazy var firstStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .equalSpacing
+        $0.spacing = 10
+        $0.addArrangedSubview(firstView)
+        $0.addArrangedSubview(secondView)
+    }
+    
+    lazy var secondStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .equalSpacing
+        $0.spacing = 0
+        $0.addArrangedSubview(thirdView)
+        $0.addArrangedSubview(fourView)
+    }
+    
+    var firstView = UIView().then {
+        $0.backgroundColor = .red
+    }
+    
+    var secondView = UIView().then {
+        $0.backgroundColor = .orange
+    }
+    
+    var thirdView = UIView().then {
+        print("왜")
+        $0.backgroundColor = .yellow
+    }
+    
+    var fourView = UIView().then {
+        $0.backgroundColor = .green
+    }
+    
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-}
-
-extension CelebrityProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        setLayout()
+        setUI()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "oneLineCell", for: indexPath) as? OneLineCell else {
-            return UICollectionViewCell()
+    //MARK: - Functions
+    func setLayout(){
+        
+        [scrollView].forEach{ view.addSubview($0) }
+        
+        // scrollview 를 뷰에 맞게 맞춰준다.
+        scrollView.snp.makeConstraints{
+            $0.edges.equalToSuperview().inset(30)
         }
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let margin:CGFloat = 25
-            let cellRatio: CGFloat = 5/3
-            let screenWidth = UIScreen.main.bounds.width
-            let cellWidth =  (screenWidth-margin) / CGFloat(2)
-        let cellHeight = 20.0
-            return CGSize(width: cellWidth, height: cellHeight)
+        
+        firstView.snp.makeConstraints{
+            $0.trailing.leading.equalToSuperview()
+            $0.height.equalTo(300)
         }
- 
+        secondView.snp.makeConstraints{
+            $0.trailing.leading.equalToSuperview()
+            $0.height.equalTo(300)
+        }
+        thirdView.snp.makeConstraints{
+            $0.trailing.leading.equalToSuperview()
+            $0.height.equalTo(300)
+        }
+        
+        fourView.snp.makeConstraints{
+            $0.trailing.leading.equalToSuperview()
+            $0.height.equalTo(300)
+        }
+        
+//        contentView.snp.makeConstraints{
+//            $0.top.leading.trailing.equalToSuperview().inset(16)
+//        }
+        
+        
+        
+        
+        
+        
+        // contentview 는  scrollview contentLayoutGuide와 맞춘다.
+        // 수직 스크롤 적용을 위해 scrollView의 width와 동일하게, height는 이와 같이 한다.
+                contentView.snp.makeConstraints{
+                    $0.width.equalTo(scrollView.snp.width).multipliedBy(1)
+                    $0.edges.equalTo(scrollView.contentLayoutGuide)
+        //            $0.height.equalTo(scrollView.snp.height)
+                    $0.height.greaterThanOrEqualTo(view.snp.height).priority(.low)
+        
+                }
+    }
     
-}
-
-class OneLineCell: UICollectionViewCell {
+    func setUI(){
+        self.view.backgroundColor = .white
+    }
     
-}
-
-class PhraseCell: UICollectionViewCell {
     
+    //MARK: - objc Functions
 }

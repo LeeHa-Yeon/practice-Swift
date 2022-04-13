@@ -12,6 +12,7 @@ import SnapKit
 class CharacterViewController: UIViewController {
     
     //MARK: - UI Components
+    // 상단
     private var backButtonImage: UIImage? {
         return UIImage(named: "icon_back")?.withAlignmentRectInsets(UIEdgeInsets(top: -25.0, left: -20.0, bottom: 0.0, right: 0.0))
     }
@@ -63,14 +64,15 @@ class CharacterViewController: UIViewController {
         $0.font = UIFont(name: "Pretendard-Regular", size: 12)
     }
     
-    
-    
-    
+    // 내용
     lazy var bottomSheetView = UIView().then {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 24
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         $0.clipsToBounds = true
+        $0.addSubview(choseStackView)
+        $0.addSubview(soulRoutinContainerView)
+        $0.addSubview(profileContainerView)
     }
     
     lazy var dismissIndicatorView = UIView().then {
@@ -78,11 +80,37 @@ class CharacterViewController: UIViewController {
         $0.layer.cornerRadius = 3
     }
     
+    lazy var choseStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.distribution = .fillEqually
+        $0.addArrangedSubview(profileButton)
+        $0.addArrangedSubview(soulRoutinButton)
+    }
     
+    lazy var profileButton = UIButton().then {
+        $0.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
+        $0.setTitle("프로필", for: .normal)
+        $0.setTitleColor(UIColor(named: "soulMain"), for: .normal)
+        $0.backgroundColor = UIColor(named: "soulSub")
+        $0.tag = 1
+        $0.addTarget(self, action: #selector(changeContainer(_:)), for: .touchUpInside)
+    }
     
+    lazy var soulRoutinButton = UIButton().then {
+        $0.titleLabel?.font = UIFont(name: "Pretendard-Regular", size: 18)
+        $0.setTitle("소울 루틴", for: .normal)
+        $0.setTitleColor(UIColor(named: "soulGray1"), for: .normal)
+        $0.backgroundColor = .clear
+        $0.tag = 2
+        $0.addTarget(self, action: #selector(changeContainer(_:)), for: .touchUpInside)
+    }
     
+    lazy var profileContainerView = UIView()
     
+    lazy var soulRoutinContainerView = UIView()
+    /////////
     
+    // 하단
     lazy var fixBottomView = UIView().then {
         $0.backgroundColor = UIColor(named:"soulMain")
         // TODO: - 뷰의 radius 47 -> 32로 설정 ( 디자이너께 문의 )
@@ -104,6 +132,7 @@ class CharacterViewController: UIViewController {
         setNavigation()
         setLayout()
         setUI()
+        setContainerView()
     }
     
     //MARK: - Functions
@@ -119,6 +148,8 @@ class CharacterViewController: UIViewController {
     
     func setLayout(){
         [celebrityImageView,koreaNameLabel,subSmallStackView,hashTagView,bottomSheetView,fixBottomView].forEach { self.view.addSubview($0) }
+        
+        // MARK: - 상단
         
         celebrityImageView.snp.makeConstraints{
             $0.centerX.equalToSuperview()
@@ -138,7 +169,7 @@ class CharacterViewController: UIViewController {
         
         separaterView.snp.makeConstraints{
             $0.width.equalTo(1)
-            $0.height.equalTo(14)
+            $0.height.equalTo(12)
         }
         
         hashTagView.snp.makeConstraints{
@@ -153,10 +184,26 @@ class CharacterViewController: UIViewController {
             $0.centerX.centerY.equalToSuperview()
         }
         
+        // MARK: - 바텀시트
+        
         bottomSheetView.snp.makeConstraints{
-            $0.leading.trailing.bottom.equalToSuperview().inset(0)
+            $0.leading.trailing.bottom.equalToSuperview()
             $0.top.equalTo(hashTagView.snp.bottom).offset(38)
         }
+        
+        choseStackView.snp.makeConstraints{
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(50)
+        }
+        profileContainerView.snp.makeConstraints{
+            $0.top.equalTo(choseStackView.snp.bottom)
+            $0.bottom.leading.trailing.equalToSuperview()
+        }
+        soulRoutinContainerView.snp.makeConstraints{
+            $0.top.equalTo(choseStackView.snp.bottom)
+            $0.bottom.leading.trailing.equalToSuperview()
+        }
+        // MARK: - oo처럼 살아보기
         
         fixBottomView.snp.makeConstraints{
             $0.leading.trailing.equalToSuperview().inset(20)
@@ -167,16 +214,59 @@ class CharacterViewController: UIViewController {
         tryOutButton.snp.makeConstraints{
             $0.edges.equalToSuperview().inset(0)
         }
+    }
+    
+    func setContainerView(){
+        let CelebrityProfileVC = CelebrityProfileViewController()
+        self.addChild(CelebrityProfileVC)
+        self.profileContainerView.addSubview(CelebrityProfileVC.view)
+        CelebrityProfileVC.view.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        CelebrityProfileVC.didMove(toParent: self)
         
+        let CelebrityRoutinVC = CelebrityRoutinViewController()
+        self.addChild(CelebrityRoutinVC)
+        self.soulRoutinContainerView.addSubview(CelebrityRoutinVC.view)
+        CelebrityRoutinVC.view.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        CelebrityRoutinVC.didMove(toParent: self)
     }
     
     func setUI(){
         self.view.backgroundColor = UIColor(named:"soulMain")
     }
     
+    func changeButtonStatus(_ button: UIButton,_ isFontBold: Bool, _ fontSize: CGFloat){
+        if isFontBold {
+            button.setTitleColor(UIColor(named:"soulMain"), for: .normal)
+            button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: fontSize)
+            button.backgroundColor = UIColor(named:"soulSub")
+        }else {
+            button.setTitleColor(UIColor(named:"soulGray1"), for: .normal)
+            button.titleLabel?.font = UIFont(name: "Pretendard-Regular", size: fontSize)
+            button.backgroundColor = .clear
+        }
+    }
+    
     //MARK: - objc Functions
     @objc func moveToVC(_ sender: UIButton){
         let TodoVC = TodoViewController()
         self.navigationController?.pushViewController(TodoVC, animated: true)
+    }
+    
+    @objc func changeContainer(_ sender: UIButton){
+        if sender.tag == 1 {
+            changeButtonStatus(profileButton, true, 18)
+            changeButtonStatus(soulRoutinButton, false, 18)
+            profileContainerView.alpha = 1
+            soulRoutinContainerView.alpha = 0
+        } else {
+            changeButtonStatus(profileButton, false, 18)
+            changeButtonStatus(soulRoutinButton, true, 18)
+            profileContainerView.alpha = 0
+            soulRoutinContainerView.alpha = 1
+        }
     }
 }

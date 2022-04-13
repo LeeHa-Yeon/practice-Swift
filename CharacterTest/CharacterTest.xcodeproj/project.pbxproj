@@ -19,6 +19,7 @@
 		9FE7729328055D140022FE89 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7729228055D140022FE89 /* TodoViewController.swift */; };
 		9FE772952805A7280022FE89 /* CelebrityProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE772942805A7280022FE89 /* CelebrityProfileViewController.swift */; };
 		9FE772972805A7400022FE89 /* CelebrityRoutinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE772962805A7400022FE89 /* CelebrityRoutinViewController.swift */; };
+		9FE772A52806A02C0022FE89 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE772A42806A02C0022FE89 /* testViewController.swift */; };
 		F3158B1290D6E918404EF7C2 /* Pods_CharacterTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F78005A590FFA510E110D2 /* Pods_CharacterTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		9FE7729228055D140022FE89 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		9FE772942805A7280022FE89 /* CelebrityProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityProfileViewController.swift; sourceTree = "<group>"; };
 		9FE772962805A7400022FE89 /* CelebrityRoutinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityRoutinViewController.swift; sourceTree = "<group>"; };
+		9FE772A42806A02C0022FE89 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		B3F78005A590FFA510E110D2 /* Pods_CharacterTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				9FE7727628046B6C0022FE89 /* AppDelegate.swift */,
 				9FE7727828046B6C0022FE89 /* SceneDelegate.swift */,
 				9FE7727A28046B6C0022FE89 /* HomeViewController.swift */,
+				9FE772A42806A02C0022FE89 /* testViewController.swift */,
 				9FE7728A28046D5D0022FE89 /* CharacterViewController.swift */,
 				9FE772942805A7280022FE89 /* CelebrityProfileViewController.swift */,
 				9FE772962805A7400022FE89 /* CelebrityRoutinViewController.swift */,
@@ -228,6 +231,7 @@
 			files = (
 				9FE772952805A7280022FE89 /* CelebrityProfileViewController.swift in Sources */,
 				9FE7729328055D140022FE89 /* TodoViewController.swift in Sources */,
+				9FE772A52806A02C0022FE89 /* testViewController.swift in Sources */,
 				9FE7728B28046D5D0022FE89 /* CharacterViewController.swift in Sources */,
 				9FE7727B28046B6C0022FE89 /* HomeViewController.swift in Sources */,
 				9FE772972805A7400022FE89 /* CelebrityRoutinViewController.swift in Sources */,
