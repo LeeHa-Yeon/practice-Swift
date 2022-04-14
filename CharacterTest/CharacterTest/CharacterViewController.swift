@@ -232,6 +232,7 @@ class CharacterViewController: UIViewController {
         CelebrityRoutinVC.view.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
         CelebrityRoutinVC.didMove(toParent: self)
     }
     
