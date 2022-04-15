@@ -17,7 +17,6 @@
 		9FE7728B28046D5D0022FE89 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7728A28046D5D0022FE89 /* CharacterViewController.swift */; };
 		9FE7728D2805445D0022FE89 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7728C280544570022FE89 /* Pretendard-Bold.otf */; };
 		9FE7728F280544990022FE89 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7728E280544960022FE89 /* Pretendard-Regular.otf */; };
-		9FE7729128054FBA0022FE89 /* dovemayo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7729028054FAA0022FE89 /* dovemayo.otf */; };
 		9FE7729328055D140022FE89 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7729228055D140022FE89 /* TodoViewController.swift */; };
 		9FE772952805A7280022FE89 /* CelebrityProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE772942805A7280022FE89 /* CelebrityProfileViewController.swift */; };
 		9FE772972805A7400022FE89 /* CelebrityRoutinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE772962805A7400022FE89 /* CelebrityRoutinViewController.swift */; };
@@ -39,7 +38,6 @@
 		9FE7728A28046D5D0022FE89 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		9FE7728C280544570022FE89 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		9FE7728E280544960022FE89 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		9FE7729028054FAA0022FE89 /* dovemayo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dovemayo.otf; sourceTree = "<group>"; };
 		9FE7729228055D140022FE89 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		9FE772942805A7280022FE89 /* CelebrityProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityProfileViewController.swift; sourceTree = "<group>"; };
 		9FE772962805A7400022FE89 /* CelebrityRoutinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrityRoutinViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				9FAA61A12809C4E000CFA2A4 /* AlertView */,
 				9FE7728C280544570022FE89 /* Pretendard-Bold.otf */,
 				9FE7728E280544960022FE89 /* Pretendard-Regular.otf */,
-				9FE7729028054FAA0022FE89 /* dovemayo.otf */,
 				9FE7727628046B6C0022FE89 /* AppDelegate.swift */,
 				9FE7727828046B6C0022FE89 /* SceneDelegate.swift */,
 				9FE7727A28046B6C0022FE89 /* HomeViewController.swift */,
@@ -187,7 +184,6 @@
 				9FE7728F280544990022FE89 /* Pretendard-Regular.otf in Resources */,
 				9FE7728D2805445D0022FE89 /* Pretendard-Bold.otf in Resources */,
 				9FAA61A32809C4EE00CFA2A4 /* AlertView.xib in Resources */,
-				9FE7729128054FBA0022FE89 /* dovemayo.otf in Resources */,
 				9FE7728028046B6D0022FE89 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

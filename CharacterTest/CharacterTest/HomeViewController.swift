@@ -61,7 +61,8 @@ class HomeViewController: UIViewController {
     @objc func testAlert(_ sender: UIButton){
         let popupView = AlertView(frame: view.bounds)
         //        popupView.okButton.isHidden = true
-        popupView.popupAlert(iconStyle: .questionIcon, title: "스티브 잡스를 체험하시겠어요?", message: "셀럽은 하루에 한 명씩만 체험할 수 있습니다.", firstBtnTitle: "뒤로가기", secondBtnTitle: "체험하기", myView: popupView)
+        popupView.popupAlert(iconStyle: .exclamationIcon, title: "아직 체험할 셀럽을 정하지 않았어요!", message: "홈 화면에서 오늘 체험하고 싶은 셀럽을 선택해주세요. ", firstBtnTitle: nil, secondBtnTitle: "확인", myView: popupView)
+        popupView.cancelButton.isHidden = true
         popupView.delegate = self
         view.addSubview(popupView)
     }
