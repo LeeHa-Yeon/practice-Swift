@@ -70,6 +70,7 @@ class CharacterViewController: UIViewController {
         $0.layer.cornerRadius = 24
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         $0.clipsToBounds = true
+        $0.addSubview(dismissIndicatorView)
         $0.addSubview(choseStackView)
         $0.addSubview(soulRoutinContainerView)
         $0.addSubview(profileContainerView)
@@ -83,8 +84,18 @@ class CharacterViewController: UIViewController {
     lazy var choseStackView = UIStackView().then {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
-        $0.addArrangedSubview(profileButton)
-        $0.addArrangedSubview(soulRoutinButton)
+        $0.addArrangedSubview(profileButtonView)
+        $0.addArrangedSubview(soulRoutinButtonView)
+    }
+    
+    lazy var profileButtonView = UIView().then {
+        $0.backgroundColor = .clear
+        $0.addSubview(profileButton)
+    }
+    
+    lazy var soulRoutinButtonView = UIView().then {
+        $0.backgroundColor = .clear
+        $0.addSubview(soulRoutinButton)
     }
     
     lazy var profileButton = UIButton().then {
@@ -92,6 +103,7 @@ class CharacterViewController: UIViewController {
         $0.setTitle("프로필", for: .normal)
         $0.setTitleColor(UIColor(named: "soulMain"), for: .normal)
         $0.backgroundColor = UIColor(named: "soulSub")
+        $0.clipsToBounds = true
         $0.tag = 1
         $0.addTarget(self, action: #selector(changeContainer(_:)), for: .touchUpInside)
     }
@@ -101,6 +113,7 @@ class CharacterViewController: UIViewController {
         $0.setTitle("소울 루틴", for: .normal)
         $0.setTitleColor(UIColor(named: "soulGray1"), for: .normal)
         $0.backgroundColor = .clear
+        $0.clipsToBounds = true
         $0.tag = 2
         $0.addTarget(self, action: #selector(changeContainer(_:)), for: .touchUpInside)
     }
@@ -191,11 +204,30 @@ class CharacterViewController: UIViewController {
             $0.top.equalTo(hashTagView.snp.bottom).offset(38)
         }
         
+        dismissIndicatorView.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().inset(14)
+            $0.height.equalTo(4)
+            $0.width.equalTo(66)
+        }
+        
         choseStackView.snp.makeConstraints{
-            $0.top.equalToSuperview().inset(38)
+            $0.top.equalTo(dismissIndicatorView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.equalTo(34)
         }
+        profileButton.snp.makeConstraints{
+            $0.centerX.centerY.equalToSuperview()
+            $0.width.greaterThanOrEqualTo(71)
+            $0.height.equalTo(34)
+        }
+        soulRoutinButton.snp.makeConstraints{
+            $0.centerX.centerY.equalToSuperview()
+            $0.width.greaterThanOrEqualTo(90)
+            $0.height.equalTo(34)
+        }
+        
+        
         profileContainerView.snp.makeConstraints{
             $0.top.equalTo(choseStackView.snp.bottom)
             $0.bottom.leading.trailing.equalToSuperview()
@@ -238,6 +270,9 @@ class CharacterViewController: UIViewController {
     
     func setUI(){
         self.view.backgroundColor = UIColor(named:"soulMain")
+        profileButton.layer.borderWidth = 1
+        profileButton.layer.borderColor = UIColor.clear.cgColor
+        profileButton.layer.cornerRadius = 15
     }
     
     func changeButtonStatus(_ button: UIButton,_ isFontBold: Bool, _ fontSize: CGFloat){
@@ -245,6 +280,9 @@ class CharacterViewController: UIViewController {
             button.setTitleColor(UIColor(named:"soulMain"), for: .normal)
             button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: fontSize)
             button.backgroundColor = UIColor(named:"soulSub")
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.clear.cgColor
+            button.layer.cornerRadius = 15
         }else {
             button.setTitleColor(UIColor(named:"soulGray1"), for: .normal)
             button.titleLabel?.font = UIFont(name: "Pretendard-Regular", size: fontSize)

@@ -68,6 +68,11 @@ class TodoViewController: UIViewController {
         $0.clipsToBounds = true
     }
     
+    lazy var dismissIndicatorView = UIView().then {
+        $0.backgroundColor = UIColor(named: "soulGray2")
+        $0.layer.cornerRadius = 3
+    }
+    
     lazy var subTitleLabel = UILabel().then {
         $0.text = "스티브 잡스의 소울 루틴 따라잡기"
         $0.font = UIFont(name: "Pretendard-Bold", size: 14)
@@ -93,7 +98,7 @@ class TodoViewController: UIViewController {
     
     //MARK: - Functions
     func setLayout(){
-        [subTitleLabel,tableView].forEach{ bottomSheetView.addSubview($0)}
+        [dismissIndicatorView,subTitleLabel,tableView].forEach{ bottomSheetView.addSubview($0)}
         
         [titleStackView,dateLabel,progressView,bottomSheetView].forEach{ view.addSubview($0) }
         
@@ -119,8 +124,15 @@ class TodoViewController: UIViewController {
             $0.top.equalTo(progressView.snp.bottom).offset(45)
         }
         
+        dismissIndicatorView.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().inset(14)
+            $0.height.equalTo(4)
+            $0.width.equalTo(66)
+        }
+        
         subTitleLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().inset(48)
+            $0.top.equalTo(dismissIndicatorView.snp.bottom).offset(30)
             $0.leading.equalToSuperview().inset(24)
         }
         
