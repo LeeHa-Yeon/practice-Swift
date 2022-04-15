@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9FAA61A32809C4EE00CFA2A4 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAA61A22809C4EE00CFA2A4 /* AlertView.xib */; };
+		9FAA61A52809C4FC00CFA2A4 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA61A42809C4FC00CFA2A4 /* AlertView.swift */; };
 		9FE7727728046B6C0022FE89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7727628046B6C0022FE89 /* AppDelegate.swift */; };
 		9FE7727928046B6C0022FE89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7727828046B6C0022FE89 /* SceneDelegate.swift */; };
 		9FE7727B28046B6C0022FE89 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7727A28046B6C0022FE89 /* HomeViewController.swift */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		5432D086AFE3E16B004C9893 /* Pods-CharacterTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterTest.debug.xcconfig"; path = "Target Support Files/Pods-CharacterTest/Pods-CharacterTest.debug.xcconfig"; sourceTree = "<group>"; };
 		93ABE0981D3FE712BD8FAABC /* Pods-CharacterTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterTest.release.xcconfig"; path = "Target Support Files/Pods-CharacterTest/Pods-CharacterTest.release.xcconfig"; sourceTree = "<group>"; };
+		9FAA61A22809C4EE00CFA2A4 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		9FAA61A42809C4FC00CFA2A4 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		9FE7727328046B6C0022FE89 /* CharacterTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE7727628046B6C0022FE89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FE7727828046B6C0022FE89 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9FAA61A12809C4E000CFA2A4 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				9FAA61A22809C4EE00CFA2A4 /* AlertView.xib */,
+				9FAA61A42809C4FC00CFA2A4 /* AlertView.swift */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
 		9FE7726A28046B6C0022FE89 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +97,7 @@
 		9FE7727528046B6C0022FE89 /* CharacterTest */ = {
 			isa = PBXGroup;
 			children = (
+				9FAA61A12809C4E000CFA2A4 /* AlertView */,
 				9FE7728C280544570022FE89 /* Pretendard-Bold.otf */,
 				9FE7728E280544960022FE89 /* Pretendard-Regular.otf */,
 				9FE7729028054FAA0022FE89 /* dovemayo.otf */,
@@ -172,6 +186,7 @@
 				9FE7728328046B6D0022FE89 /* LaunchScreen.storyboard in Resources */,
 				9FE7728F280544990022FE89 /* Pretendard-Regular.otf in Resources */,
 				9FE7728D2805445D0022FE89 /* Pretendard-Bold.otf in Resources */,
+				9FAA61A32809C4EE00CFA2A4 /* AlertView.xib in Resources */,
 				9FE7729128054FBA0022FE89 /* dovemayo.otf in Resources */,
 				9FE7728028046B6D0022FE89 /* Assets.xcassets in Resources */,
 			);
@@ -231,6 +246,7 @@
 				9FE7728B28046D5D0022FE89 /* CharacterViewController.swift in Sources */,
 				9FE7727B28046B6C0022FE89 /* HomeViewController.swift in Sources */,
 				9FE772972805A7400022FE89 /* CelebrityRoutinViewController.swift in Sources */,
+				9FAA61A52809C4FC00CFA2A4 /* AlertView.swift in Sources */,
 				9FE7727728046B6C0022FE89 /* AppDelegate.swift in Sources */,
 				9FE7727928046B6C0022FE89 /* SceneDelegate.swift in Sources */,
 			);
