@@ -136,11 +136,20 @@ class CelebrityRoutinCell : UITableViewCell {
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
     }
     
+    lazy var checkImageView = UIImageView().then {
+        $0.image = UIImage(named: "icon_check")
+        $0.isHidden = true
+        $0.contentMode = .scaleAspectFit
+    }
+    
+    // 영구적
     override func layoutSubviews() {
         super.layoutSubviews()
         setLayout()
         setUI()
     }
+    
+    // 일시적 ( 초기설정하는 느낌 )
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -148,7 +157,7 @@ class CelebrityRoutinCell : UITableViewCell {
     
     
     func setLayout(){
-        [circleImageView,timeLabel,scheduleLabel].forEach{ addSubview($0) }
+        [circleImageView,timeLabel,scheduleLabel,checkImageView].forEach{ addSubview($0) }
         
         circleImageView.snp.makeConstraints{
             $0.centerY.equalToSuperview()
@@ -162,6 +171,12 @@ class CelebrityRoutinCell : UITableViewCell {
         scheduleLabel.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(timeLabel.snp.trailing).offset(24)
+        }
+        
+        checkImageView.snp.makeConstraints{
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(20)
+            $0.width.height.equalTo(22)
         }
     }
     

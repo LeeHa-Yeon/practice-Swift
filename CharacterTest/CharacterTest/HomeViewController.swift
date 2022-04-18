@@ -11,6 +11,8 @@ import Then
 
 class HomeViewController: UIViewController {
     
+    let celebrityService = CelebrityService.shared
+    
     //MARK: - UI Components
     lazy var myRoutinBarButton = UIBarButtonItem().then{
         $0.image = UIImage(named:"icon_profile")
@@ -61,8 +63,7 @@ class HomeViewController: UIViewController {
     @objc func testAlert(_ sender: UIButton){
         let popupView = AlertView(frame: view.bounds)
         //        popupView.okButton.isHidden = true
-        popupView.popupAlert(iconStyle: .exclamationIcon, title: "아직 체험할 셀럽을 정하지 않았어요!", message: "홈 화면에서 오늘 체험하고 싶은 셀럽을 선택해주세요. ", firstBtnTitle: nil, secondBtnTitle: "확인", myView: popupView)
-        popupView.cancelButton.isHidden = true
+        popupView.popupAlert(iconStyle: .exclamationIcon, title: "아직 체험할 셀럽을 정하지 않았어요!", message: "홈 화면에서 오늘 체험하고 싶은 셀럽을 선택해주세요. ", firstBtnTitle: "아니요", secondBtnTitle: "확인", myView: popupView)
         popupView.delegate = self
         view.addSubview(popupView)
     }

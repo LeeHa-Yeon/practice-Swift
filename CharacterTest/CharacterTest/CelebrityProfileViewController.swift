@@ -372,7 +372,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var tmiContent = UILabel().then {
-        $0.text = "- 스티브 잡스는 왼손잡이다.\n- 스티브 잡스는 영화 기획자로서 일하며\n   토이스토리를 기획했다."
+        $0.text = "- 스티브 잡스는 왼손잡이다.\r\n- 스티브잡스는 영화 기획자로서 일하며 토이스토리를 기획했다"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.numberOfLines = 0

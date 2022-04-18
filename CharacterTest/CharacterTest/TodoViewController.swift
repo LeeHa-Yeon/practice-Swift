@@ -12,6 +12,7 @@ import Then
 class TodoViewController: UIViewController {
     
     var routinDic: [String:String] = ["06:00":"기상","06:30":"일하기","07:30":"가족과 함께 아침 식사","09:00":"사무실 도착","09:30":"오전 미팅","12:00":"점심 식사","13:30":"Design Lab 방문","15:30":"이메일, 미팅, 전화 업무","17:30":"가족과 함께 저녁 식사","18:30":"소중한 사람과 시간 보내기","22:00":"음악 감상, 명상 및 기도"]
+    var isCheck:[Bool] =  [false,false,false,false,false,false,false,false,false,false,false]
     
     //MARK: - UI Components
     
@@ -182,6 +183,7 @@ extension TodoViewController: UITableViewDelegate, UITableViewDataSource {
         let sortedRoutinList = routinDic.sorted{ $0.0 < $1.0 }
         cell.timeLabel.text = sortedRoutinList[indexPath.section].key
         cell.scheduleLabel.text = sortedRoutinList[indexPath.section].value
+        
         return cell
     }
     
@@ -213,5 +215,28 @@ extension TodoViewController: UITableViewDelegate, UITableViewDataSource {
             scrollView.contentInset = UIEdgeInsets(top: -scrollHeaderHeight, left: 0, bottom: 0, right: 0)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let currentCell = tableView.cellForRow(at: indexPath) as? CelebrityRoutinCell else {
+            return
+        }
+        currentCell.backgroundColor = UIColor(named: "soulMain")
+        currentCell.contentView.backgroundColor = UIColor(named: "soulMain")
+        currentCell.circleImageView.image = UIImage(named: "circleOn")
+        currentCell.timeLabel.textColor = UIColor.white
+        currentCell.scheduleLabel.textColor = UIColor.white
+        currentCell.checkImageView.isHidden = false
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            var sortedRoutinList = routinDic.sorted{ $0.0 < $1.0 }
+            routinDic.removeValue(forKey: sortedRoutinList[indexPath.section].key)
+            sortedRoutinList.remove(at: indexPath.section)
+            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
+   
+        }
+    }
+
     
 }
