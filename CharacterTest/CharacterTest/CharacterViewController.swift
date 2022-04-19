@@ -8,8 +8,11 @@
 import UIKit
 import Then
 import SnapKit
+import Kingfisher
 
 class CharacterViewController: UIViewController {
+    
+    let viewModel = CharacterViewModel()
     
     //MARK: - UI Components
     // 상단
@@ -18,12 +21,11 @@ class CharacterViewController: UIViewController {
     }
     
     lazy var celebrityImageView = UIImageView().then {
-        $0.image = UIImage(named: "Mask group")
-        $0.layer.cornerRadius = 50
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
     }
     
     lazy var koreaNameLabel = UILabel().then {
-        $0.text = "스티브 잡스"
         $0.textColor = .white
         $0.font = UIFont(name: "Pretendard-Bold", size: 24.0)
     }
@@ -39,7 +41,6 @@ class CharacterViewController: UIViewController {
     }
     
     lazy var englishNameLabel = UILabel().then {
-        $0.text = "Steve Jobs"
         $0.textColor = .white
         $0.font = UIFont(name: "Pretendard-Regular", size: 14)
     }
@@ -49,17 +50,14 @@ class CharacterViewController: UIViewController {
     }
     
     lazy var countryLabel = UILabel().then {
-        $0.text = "미국"
         $0.textColor = .white
         $0.font = UIFont(name: "Pretendard-Regular", size: 14)
     }
     lazy var hashTagView = UIView().then {
-        $0.backgroundColor = UIColor(named: "soulRed2")
         $0.addSubview(careerLabel)
         $0.layer.cornerRadius = 4
     }
     lazy var careerLabel = UILabel().then {
-        $0.text = "기업인"
         $0.textColor = UIColor(named: "soulNegative")
         $0.font = UIFont(name: "Pretendard-Regular", size: 12)
     }
@@ -142,6 +140,7 @@ class CharacterViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setData()
         setNavigation()
         setLayout()
         setUI()
@@ -270,6 +269,11 @@ class CharacterViewController: UIViewController {
     
     func setUI(){
         self.view.backgroundColor = UIColor(named:"soulMain")
+        
+        celebrityImageView.layer.cornerRadius = 78 / 2
+        celebrityImageView.layer.borderWidth = 1
+        celebrityImageView.layer.borderColor = UIColor.clear.cgColor
+        
         profileButton.layer.borderWidth = 1
         profileButton.layer.borderColor = UIColor.clear.cgColor
         profileButton.layer.cornerRadius = 15
@@ -287,6 +291,26 @@ class CharacterViewController: UIViewController {
             button.setTitleColor(UIColor(named:"soulGray1"), for: .normal)
             button.titleLabel?.font = UIFont(name: "Pretendard-Regular", size: fontSize)
             button.backgroundColor = .clear
+        }
+    }
+    
+    func setData(){
+        viewModel.requestData { response in
+            self.urlToImg(urlStr: response.image, img: self.celebrityImageView)
+            self.koreaNameLabel.text = response.name
+            self.englishNameLabel.text = response.englishName
+            self.countryLabel.text = response.nationality
+            self.hashTagView.backgroundColor = UIColor(named: response.job.backgroundColor)
+            self.careerLabel.textColor = UIColor(named: response.job.textColor)
+            self.careerLabel.text = response.job.name
+            
+        }
+    }
+    
+    func urlToImg(urlStr: String, img: UIImageView){
+        if let url: URL = URL(string: urlStr ){
+            img.kf.indicatorType = .activity
+            img.kf.setImage(with:url)
         }
     }
     

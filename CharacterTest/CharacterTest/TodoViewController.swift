@@ -220,7 +220,6 @@ extension TodoViewController: UITableViewDelegate, UITableViewDataSource {
         guard let currentCell = tableView.cellForRow(at: indexPath) as? CelebrityRoutinCell else {
             return
         }
-        currentCell.backgroundColor = UIColor(named: "soulMain")
         currentCell.contentView.backgroundColor = UIColor(named: "soulMain")
         currentCell.circleImageView.image = UIImage(named: "circleOn")
         currentCell.timeLabel.textColor = UIColor.white

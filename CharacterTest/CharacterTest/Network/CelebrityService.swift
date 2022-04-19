@@ -12,7 +12,7 @@ class CelebrityService {
     
     private init(){}
     
-    // 셀럽 리스트 조회 -> 현재 디코딩이 안되서 사용 불가 ( 서버 문의 )
+    // 셀럽 리스트 조회
     func requestShowCelebrityList(completion: @escaping (ShowCelebrityListResponse)->(Void)){
         let URL = Constant.BasicURL + "/celebrities"
         let HEADER: HTTPHeaders = [
@@ -32,7 +32,7 @@ class CelebrityService {
         
     }
     
-    // 특정 셀럽 조회 ( ShowCelebrityResponse 루틴빼고는 성공 )
+    // 특정 셀럽 조회
     func requestShowCelebrity(celebrityId: Int, completion: @escaping (ShowCelebrityResponse)->(Void)){
         let URL = Constant.BasicURL + "/celebrities/\(celebrityId)"
         let HEADER: HTTPHeaders = [
@@ -64,14 +64,14 @@ class CelebrityService {
         
     }
     
-    // 특정 셀럽 체험하기 (ImitateCelebrityReqeust 부분 타입 서버에게 요청)
-    func requestImitateCelebrity(celebrityId: Int, para: ImitateCelebrityReqeust, completion: @escaping (ImitateCelebrityResponse)->(Void)){
+    // 특정 셀럽 체험하기 
+    func requestImitateCelebrity(celebrityId: Int, completion: @escaping (ImitateCelebrityResponse)->(Void)){
         let URL = Constant.BasicURL + "/celebrities/\(celebrityId)/imitate"
         let HEADER: HTTPHeaders = [
             "accept":           "application/json",
             "Content-Type":     "application/json",
         ]
-        AF.request(URL, method: .post,parameters: para, encoder: JSONParameterEncoder(), headers: HEADER).validate(statusCode: 200..<500).validate(contentType: ["application/json"]).responseDecodable(of: ImitateCelebrityResponse.self) {
+        AF.request(URL, method: .post, headers: HEADER).validate(statusCode: 200..<500).validate(contentType: ["application/json"]).responseDecodable(of: ImitateCelebrityResponse.self) {
             response in
             switch response.result {
             case .success(let successResponse) :

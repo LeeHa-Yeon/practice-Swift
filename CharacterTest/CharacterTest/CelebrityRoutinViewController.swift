@@ -142,22 +142,34 @@ class CelebrityRoutinCell : UITableViewCell {
         $0.contentMode = .scaleAspectFit
     }
     
-    // 영구적
+    // 계속 바뀜
+    // 뷰를 추가하거나, 사이즈 바꾸거나, 레이블 넣거나 지우는 과정 ->> 레이아웃 정의
     override func layoutSubviews() {
         super.layoutSubviews()
+    }
+    
+    // 재사용할 때 사용
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //        self.layoutSubviews()
+        
+        
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setLayout()
         setUI()
     }
     
-    // 일시적 ( 초기설정하는 느낌 )
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         
     }
     
     
     func setLayout(){
-        [circleImageView,timeLabel,scheduleLabel,checkImageView].forEach{ addSubview($0) }
+        [circleImageView,timeLabel,scheduleLabel,checkImageView].forEach{ contentView.addSubview($0) }
         
         circleImageView.snp.makeConstraints{
             $0.centerY.equalToSuperview()
@@ -181,7 +193,7 @@ class CelebrityRoutinCell : UITableViewCell {
     }
     
     func setUI(){
-        self.contentView.backgroundColor = UIColor(named: "soulSub")
+        self.contentView.backgroundColor = UIColor(named: "soulPink2")
         self.layer.cornerRadius = 15
         self.clipsToBounds = true
     }

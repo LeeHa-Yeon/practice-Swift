@@ -8,6 +8,10 @@
 import Foundation
 
 struct ShowCelebrityResponse: Decodable {
+    let celebrityInformation: CelebrityInformation
+}
+
+struct CelebrityInformation: Decodable {
     let id: Int
     let name: String
     let englishName: String
@@ -22,12 +26,11 @@ struct ShowCelebrityResponse: Decodable {
     let wealth: String
     let spouse: String
     let children: String
-//    let celebrityRoutines: [CelebrityRoutin]
+    let celebrityRoutines: [CelebrityRoutin]
     let age: Int
     let birthday: String
     let deceasedAt: String
-    let tmi: String
-    
+    let tmi: [TMIString]
 }
 
 struct CelebrityJob: Decodable {
@@ -46,7 +49,12 @@ struct CelebrityWiseSaying: Decodable {
     let korean: String
 }
 
-//struct CelebrityRoutin: Decodable {
-//    let time: String
-//    let content: String
-//}
+struct CelebrityRoutin: Decodable {
+    let id: Int
+    let time: String
+    let content: String
+}
+
+struct TMIString: Decodable {
+    let content: String
+}

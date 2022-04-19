@@ -8,7 +8,7 @@
 import Foundation
 
 struct ShowCelebrityListResponse: Decodable {
-    let list: [CelebrityDTO]
+    let celebrityInformationList: [CelebrityDTO]
 }
 
 struct CelebrityDTO: Decodable {

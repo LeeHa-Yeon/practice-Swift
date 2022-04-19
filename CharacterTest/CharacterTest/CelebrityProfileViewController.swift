@@ -11,6 +11,8 @@ import SnapKit
 
 class CelebrityProfileViewController: UIViewController {
     
+    let viewModel = CharacterViewModel()
+    
     var profileWidth: Int = 60
     
     //MARK: - UI Components
@@ -46,7 +48,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var introduceContentLabel = UILabel().then {
-        $0.text = "미국 애플(Apple)사의 설립자 겸 CEO를 지낸 사업가"
+//        $0.text = "미국 애플(Apple)사의 설립자 겸 CEO를 지낸 사업가"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.numberOfLines = 0
@@ -72,14 +74,14 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var sayingEnglishLabel = UILabel().then {
-        $0.text = "Stay hungry, Stay foolish"
+//        $0.text = "Stay hungry, Stay foolish"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Bold", size: 16.0)
         $0.textAlignment = .center
     }
     
     var sayingKoreaLabel = UILabel().then {
-        $0.text = "항상 갈망하라, 그리고 늘 우직하라"
+//        $0.text = "항상 갈망하라, 그리고 늘 우직하라"
         $0.textColor = UIColor(named: "soulGray1")
         $0.font = UIFont(name: "Pretendard-Regular", size: 12.0)
         $0.textAlignment = .center
@@ -133,7 +135,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var birthdayValueLabel = UILabel().then {
-        $0.text = "1955.02.24"
+//        $0.text = "1955.02.24"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -157,7 +159,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var deceasedAtValueLabel = UILabel().then {
-        $0.text = "2011.10.05"
+//        $0.text = "2011.10.05"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -181,7 +183,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var mbtiValueLabel = UILabel().then {
-        $0.text = "ENTJ"
+//        $0.text = "ENTJ"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -205,7 +207,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var nationalityValueLabel = UILabel().then {
-        $0.text = "미국"
+//        $0.text = "미국"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -229,7 +231,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var bodySpecValueLabel = UILabel().then {
-        $0.text = "183cm 59kg"
+//        $0.text = "183cm 59kg"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -253,7 +255,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var educationValueLabel = UILabel().then {
-        $0.text = "리드대학교 철학과 중퇴"
+//        $0.text = "리드대학교 철학과 중퇴"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -277,7 +279,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var jobValueLabel = UILabel().then {
-        $0.text = "기업인"
+//        $0.text = "기업인"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -301,7 +303,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var wealthValueLabel = UILabel().then {
-        $0.text = "83억 달러(사망 당시)\n219억 달러(2021년 기준)"
+//        $0.text = "83억 달러(사망 당시)\n219억 달러(2021년 기준)"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -325,7 +327,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var spouseValueLabel = UILabel().then {
-        $0.text = "로렌 파월(1991~2011)"
+//        $0.text = "로렌 파월(1991~2011)"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -348,7 +350,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var childrenValueLabel = UILabel().then {
-        $0.text = "리사 브레넌 잡스\n리드 잡스\n에린 시에나 잡스\n이브 잡스"
+//        $0.text = "리사 브레넌 잡스\n리드 잡스\n에린 시에나 잡스\n이브 잡스"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.textAlignment = .left
@@ -372,7 +374,7 @@ class CelebrityProfileViewController: UIViewController {
     }
     
     var tmiContent = UILabel().then {
-        $0.text = "- 스티브 잡스는 왼손잡이다.\r\n- 스티브잡스는 영화 기획자로서 일하며 토이스토리를 기획했다"
+//        $0.text = "- 스티브 잡스는 왼손잡이다.\r\n- 스티브잡스는 영화 기획자로서 일하며 토이스토리를 기획했다"
         $0.textColor = UIColor(named: "soulBlack")
         $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
         $0.numberOfLines = 0
@@ -387,6 +389,7 @@ class CelebrityProfileViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setData()
         setLayout()
         setUI()
     }
@@ -463,6 +466,24 @@ class CelebrityProfileViewController: UIViewController {
     
     func setUI(){
         self.view.backgroundColor = .white
+    }
+    
+    func setData(){
+        viewModel.requestData { response in
+            self.introduceContentLabel.text = response.introduction
+            self.sayingEnglishLabel.text = response.wiseSaying.english
+            self.sayingKoreaLabel.text = response.wiseSaying.korean
+            self.birthdayValueLabel.text = response.birthday
+            self.deceasedAtValueLabel.text = response.deceasedAt
+            self.mbtiValueLabel.text = response.MBTI
+            self.nationalityValueLabel.text = response.nationality
+            self.bodySpecValueLabel.text = "\(response.bodySpec.height)cm \(response.bodySpec.weight)"
+            self.educationValueLabel.text = response.education
+            self.jobValueLabel.text = response.job.name
+            self.wealthValueLabel.text = response.wealth
+            self.spouseValueLabel.text = response.spouse
+            self.childrenValueLabel.text = response.children
+        }
     }
     
     
