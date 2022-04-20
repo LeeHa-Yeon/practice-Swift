@@ -12,6 +12,7 @@ import Then
 class HomeViewController: UIViewController {
     
     let celebrityService = CelebrityService.shared
+    let signUpService = SignUpService.shared
     
     //MARK: - UI Components
     lazy var myRoutinBarButton = UIBarButtonItem().then{
@@ -33,6 +34,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setLayout()
         setUI()
+        signUpService.requestCreateUser { response in
+            print(response)
+        }
     }
     
     //MARK: - Functions

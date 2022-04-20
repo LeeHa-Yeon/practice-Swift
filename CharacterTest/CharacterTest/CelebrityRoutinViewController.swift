@@ -11,7 +11,9 @@ import SnapKit
 
 class CelebrityRoutinViewController: UIViewController {
     
-    var routinDic: [String:String] = ["06:00":"기상","06:30":"일하기","07:30":"가족과 함께 아침 식사","09:00":"사무실 도착","09:30":"오전 미팅","12:00":"점심 식사","13:30":"Design Lab 방문","15:30":"이메일, 미팅, 전화 업무","17:30":"가족과 함께 저녁 식사","18:30":"소중한 사람과 시간 보내기","22:00":"음악 감상, 명상 및 기도"]
+    let viewModel = CharacterViewModel()
+    
+//    var routinDic: [String:String] = ["06:00":"기상","06:30":"일하기","07:30":"가족과 함께 아침 식사","09:00":"사무실 도착","09:30":"오전 미팅","12:00":"점심 식사","13:30":"Design Lab 방문","15:30":"이메일, 미팅, 전화 업무","17:30":"가족과 함께 저녁 식사","18:30":"소중한 사람과 시간 보내기","22:00":"음악 감상, 명상 및 기도"]
     
     //MARK: - UI Components
     
@@ -30,9 +32,11 @@ class CelebrityRoutinViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setData()
         setLayout()
         setUI()
         setTableView()
+        setBind()
     }
     
     //MARK: - Functions
@@ -47,7 +51,13 @@ class CelebrityRoutinViewController: UIViewController {
         spaceView.snp.makeConstraints{
             $0.top.equalTo(tableView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview().inset(24)
-            $0.height.equalTo(60)
+            $0.height.equalTo(70)
+        }
+    }
+    
+    func setData(){
+        viewModel.requestData { _ in
+            print("헤헤")
         }
     }
     
@@ -61,6 +71,12 @@ class CelebrityRoutinViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    func setBind(){
+        viewModel.routines.bind { data in
+            self.tableView.reloadData()
+        }
+    }
+    
     
     //MARK: - objc Functions
     
@@ -69,7 +85,7 @@ class CelebrityRoutinViewController: UIViewController {
 extension CelebrityRoutinViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return routinDic.count
+        return viewModel.routinesCount
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,9 +96,12 @@ extension CelebrityRoutinViewController: UITableViewDelegate, UITableViewDataSou
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CelebrityRoutinCell.identifier, for: indexPath) as? CelebrityRoutinCell else {
             return UITableViewCell()
         }
-        let sortedRoutinList = routinDic.sorted{ $0.0 < $1.0 }
-        cell.timeLabel.text = sortedRoutinList[indexPath.section].key
-        cell.scheduleLabel.text = sortedRoutinList[indexPath.section].value
+//        let sortedRoutinList = routinDic.sorted{ $0.0 < $1.0 }
+//        cell.timeLabel.text = sortedRoutinList[indexPath.section].key
+//        cell.scheduleLabel.text = sortedRoutinList[indexPath.section].value
+        let target = viewModel.getRoutinesData(idx: indexPath.section)
+        cell.timeLabel.text = target.time
+        cell.scheduleLabel.text = target.content
         return cell
     }
     
@@ -146,6 +165,8 @@ class CelebrityRoutinCell : UITableViewCell {
     // 뷰를 추가하거나, 사이즈 바꾸거나, 레이블 넣거나 지우는 과정 ->> 레이아웃 정의
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.layer.cornerRadius = 15
+        self.clipsToBounds = true
     }
     
     // 재사용할 때 사용
@@ -193,7 +214,7 @@ class CelebrityRoutinCell : UITableViewCell {
     }
     
     func setUI(){
-        self.contentView.backgroundColor = UIColor(named: "soulPink2")
+        self.contentView.backgroundColor = UIColor(named: "soulSub")
         self.layer.cornerRadius = 15
         self.clipsToBounds = true
     }

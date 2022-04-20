@@ -11,8 +11,10 @@ import Then
 
 class TodoViewController: UIViewController {
     
-    var routinDic: [String:String] = ["06:00":"기상","06:30":"일하기","07:30":"가족과 함께 아침 식사","09:00":"사무실 도착","09:30":"오전 미팅","12:00":"점심 식사","13:30":"Design Lab 방문","15:30":"이메일, 미팅, 전화 업무","17:30":"가족과 함께 저녁 식사","18:30":"소중한 사람과 시간 보내기","22:00":"음악 감상, 명상 및 기도"]
-    var isCheck:[Bool] =  [false,false,false,false,false,false,false,false,false,false,false]
+    let viewModel = TodoViewModel()
+    
+    //    var routinDic: [String:String] = ["06:00":"기상","06:30":"일하기","07:30":"가족과 함께 아침 식사","09:00":"사무실 도착","09:30":"오전 미팅","12:00":"점심 식사","13:30":"Design Lab 방문","15:30":"이메일, 미팅, 전화 업무","17:30":"가족과 함께 저녁 식사","18:30":"소중한 사람과 시간 보내기","22:00":"음악 감상, 명상 및 기도"]
+    //    var isCheck:[Bool] =  [false,false,false,false,false,false,false,false,false,false,false]
     
     //MARK: - UI Components
     
@@ -26,7 +28,7 @@ class TodoViewController: UIViewController {
     }
     
     lazy var celebrityNameLabel = UILabel().then {
-        $0.text = "스티브 잡스"
+//        $0.text = "스티브 잡스"
         $0.font = UIFont(name: "Pretendard-Bold", size: 18)
         $0.textColor = .white
     }
@@ -38,7 +40,7 @@ class TodoViewController: UIViewController {
     }
     
     lazy var leftCntLabel = UILabel().then {
-        $0.text = "n항목"
+//        $0.text = "n항목"
         $0.font = UIFont(name: "Pretendard-Bold", size: 18)
         $0.textColor = .white
     }
@@ -50,7 +52,7 @@ class TodoViewController: UIViewController {
     }
     
     lazy var dateLabel = UILabel().then {
-        $0.text = "2022/03/31"
+        $0.text = getFormattedDate()
         $0.font = UIFont(name: "Pretendard-Regular", size: 16)
         $0.textColor = .white
     }
@@ -58,7 +60,7 @@ class TodoViewController: UIViewController {
     lazy var progressView = UIProgressView().then {
         $0.trackTintColor = .clear
         $0.progressTintColor = .white
-        $0.progress = 0.7
+//        $0.progress = 0.7
         $0.clipsToBounds = true
     }
     
@@ -75,7 +77,7 @@ class TodoViewController: UIViewController {
     }
     
     lazy var subTitleLabel = UILabel().then {
-        $0.text = "스티브 잡스의 소울 루틴 따라잡기"
+//        $0.text = "스티브 잡스의 소울 루틴 따라잡기"
         $0.font = UIFont(name: "Pretendard-Bold", size: 14)
         $0.textColor = UIColor(named: "soulBlack")
     }
@@ -92,6 +94,8 @@ class TodoViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setData()
+        setBind()
         setLayout()
         setUI()
         setTableView()
@@ -141,7 +145,7 @@ class TodoViewController: UIViewController {
             $0.top.equalTo(subTitleLabel.snp.bottom).offset(6)
             $0.leading.trailing.bottom.equalToSuperview().inset(20)
         }
-    
+        
     }
     
     func setUI(){
@@ -160,6 +164,33 @@ class TodoViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    func setData(){
+        viewModel.requestData { response in
+            self.celebrityNameLabel.text = response.celebrityName
+            self.subTitleLabel.text = "\(response.celebrityName)의 소울 루틴 따라잡기"
+        }
+    }
+    
+    func setBind(){
+        
+        viewModel.routines.bind { _ in
+            self.tableView.reloadData()
+        }
+        
+        viewModel.leftCount.bind { data in
+            self.leftCntLabel.text = "\(self.viewModel.getLeftCount)항목"
+            
+            let doneCount = self.viewModel.routinesCount - data
+            self.progressView.progress = Float(doneCount)/Float(self.viewModel.routinesCount)
+        }
+    }
+    
+    func getFormattedDate() -> String{
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "yyyy/MM/dd"
+        return dateFormatterPrint.string(from: Date())
+    }
+    
     
     
     //MARK: - objc Functions
@@ -169,7 +200,7 @@ class TodoViewController: UIViewController {
 
 extension TodoViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return routinDic.count
+        return viewModel.routinesCount
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -180,9 +211,27 @@ extension TodoViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CelebrityRoutinCell.identifier, for: indexPath) as? CelebrityRoutinCell else {
             return UITableViewCell()
         }
-        let sortedRoutinList = routinDic.sorted{ $0.0 < $1.0 }
-        cell.timeLabel.text = sortedRoutinList[indexPath.section].key
-        cell.scheduleLabel.text = sortedRoutinList[indexPath.section].value
+        let target = viewModel.getRoutinesData(idx: indexPath.section)
+        cell.timeLabel.text = target.time
+        cell.scheduleLabel.text = target.content
+        if target.isCompleted {
+            cell.contentView.backgroundColor = UIColor(named: "soulMain")
+            cell.circleImageView.image = UIImage(named: "circleOn")
+            cell.timeLabel.textColor = UIColor.white
+            cell.scheduleLabel.textColor = UIColor.white
+            cell.checkImageView.isHidden = false
+        }else {
+            cell.contentView.backgroundColor = UIColor(named: "soulSub")
+            cell.circleImageView.image = UIImage(named: "circle")
+            cell.timeLabel.textColor = UIColor(named: "soulGray1")
+            cell.scheduleLabel.textColor = UIColor(named: "soulBlack")
+            cell.checkImageView.isHidden = true
+        }
+            
+        
+        //        let sortedRoutinList = routinDic.sorted{ $0.0 < $1.0 }
+        //        cell.timeLabel.text = sortedRoutinList[indexPath.section].key
+        //        cell.scheduleLabel.text = sortedRoutinList[indexPath.section].value
         
         return cell
     }
@@ -217,25 +266,26 @@ extension TodoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let currentCell = tableView.cellForRow(at: indexPath) as? CelebrityRoutinCell else {
-            return
-        }
-        currentCell.contentView.backgroundColor = UIColor(named: "soulMain")
-        currentCell.circleImageView.image = UIImage(named: "circleOn")
-        currentCell.timeLabel.textColor = UIColor.white
-        currentCell.scheduleLabel.textColor = UIColor.white
-        currentCell.checkImageView.isHidden = false
+        let target = viewModel.getRoutinesData(idx: indexPath.section)
+        viewModel.requestModify(routinId: target.id ,idx: indexPath.section, status: !target.isCompleted)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            var sortedRoutinList = routinDic.sorted{ $0.0 < $1.0 }
-            routinDic.removeValue(forKey: sortedRoutinList[indexPath.section].key)
-            sortedRoutinList.remove(at: indexPath.section)
-            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
-   
-        }
+    
+    // 삭제 커스텀 한 부분
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
+            -> UISwipeActionsConfiguration? {
+            let deleteAction = UIContextualAction(style: .normal, title: nil) { (_, _, completionHandler) in
+                // delete the item here
+                let target = self.viewModel.getRoutinesData(idx: indexPath.section)
+                self.viewModel.requestDelete(routinId: target.id, idx: indexPath.section, status: target.isCompleted)
+                completionHandler(true)
+            }
+            deleteAction.image = UIImage(named: "icon_X")
+            deleteAction.backgroundColor = UIColor(named: "soulRed1")
+            let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            return configuration
     }
+    
 
     
 }

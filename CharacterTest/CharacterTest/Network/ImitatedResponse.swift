@@ -15,8 +15,7 @@ struct ImitatedResponse: Decodable {
 
 struct RoutinResponse: Decodable {
     let id: Int
-//    let content: 이 부분 수정 필요
-    let isCompleted: Bool
-    let imitatedUser: Int
-    let celebrity: Int
+    var isCompleted: Bool
+    let time: String
+    let content: String
 }

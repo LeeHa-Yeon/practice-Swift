@@ -130,7 +130,7 @@ class CharacterViewController: UIViewController {
         self.view.bringSubviewToFront($0)
     }
     lazy var tryOutButton = UIButton().then {
-        $0.setTitle("스티브 잡스처럼 살아보기", for: .normal)
+//        $0.setTitle("스티브 잡스처럼 살아보기", for: .normal)
         $0.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 14)
         $0.setTitleColor(.white, for: .normal)
         $0.addTarget(self, action: #selector(moveToVC(_:)), for: .touchUpInside)
@@ -303,7 +303,7 @@ class CharacterViewController: UIViewController {
             self.hashTagView.backgroundColor = UIColor(named: response.job.backgroundColor)
             self.careerLabel.textColor = UIColor(named: response.job.textColor)
             self.careerLabel.text = response.job.name
-            
+            self.tryOutButton.setTitle("\(response.name)처럼 살아보기", for: .normal)
         }
     }
     

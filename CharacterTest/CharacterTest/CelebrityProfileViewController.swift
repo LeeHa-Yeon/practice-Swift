@@ -30,7 +30,6 @@ class CelebrityProfileViewController: UIViewController {
         $0.addArrangedSubview(secondStackView)
         $0.addArrangedSubview(thirdStackView)
         $0.addArrangedSubview(lastStackView)
-        $0.addArrangedSubview(spaceView)
     }
     
     lazy var firstStackView = UIStackView().then {
@@ -373,16 +372,16 @@ class CelebrityProfileViewController: UIViewController {
         $0.font = UIFont(name: "Pretendard-Bold", size: 14.0)
     }
     
-    var tmiContent = UILabel().then {
+    var tmiContent = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .equalSpacing
+        $0.spacing = 2
 //        $0.text = "- 스티브 잡스는 왼손잡이다.\r\n- 스티브잡스는 영화 기획자로서 일하며 토이스토리를 기획했다"
-        $0.textColor = UIColor(named: "soulBlack")
-        $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
-        $0.numberOfLines = 0
+//        $0.textColor = UIColor(named: "soulBlack")
+//        $0.font = UIFont(name: "Pretendard-Regular", size: 16.0)
+//        $0.numberOfLines = 0
     }
     
-    var spaceView = UIView().then {
-        $0.backgroundColor = .clear
-    }
     
     
     
@@ -400,14 +399,10 @@ class CelebrityProfileViewController: UIViewController {
         [scrollView].forEach{ view.addSubview($0) }
         [sayingEnglishLabel,sayingKoreaLabel].forEach{ wiseSayingView.addSubview($0)}
         
-        spaceView.snp.makeConstraints{
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(50)
-        }
-        
         // scrollview 를 뷰에 맞게 맞춰준다.
         scrollView.snp.makeConstraints{
-            $0.edges.equalToSuperview().inset(24)
+            $0.top.leading.trailing.equalToSuperview().inset(24)
+            $0.bottom.equalToSuperview().inset(90)
         }
         
         contentView.snp.makeConstraints{
@@ -474,15 +469,54 @@ class CelebrityProfileViewController: UIViewController {
             self.sayingEnglishLabel.text = response.wiseSaying.english
             self.sayingKoreaLabel.text = response.wiseSaying.korean
             self.birthdayValueLabel.text = response.birthday
-            self.deceasedAtValueLabel.text = response.deceasedAt
+            
+            
+            if response.deceasedAt == "" {
+                self.deceasedAtStackView.isHidden = true
+            }else {
+                self.deceasedAtValueLabel.text = response.deceasedAt
+            }
+            
+            
             self.mbtiValueLabel.text = response.MBTI
             self.nationalityValueLabel.text = response.nationality
-            self.bodySpecValueLabel.text = "\(response.bodySpec.height)cm \(response.bodySpec.weight)"
+            
+            if response.bodySpec.weight == "" {
+                self.bodySpecValueLabel.text = "\(response.bodySpec.height)"
+            }else {
+                self.bodySpecValueLabel.text = "\(response.bodySpec.height) \(response.bodySpec.weight)"
+            }
+            
             self.educationValueLabel.text = response.education
             self.jobValueLabel.text = response.job.name
             self.wealthValueLabel.text = response.wealth
             self.spouseValueLabel.text = response.spouse
-            self.childrenValueLabel.text = response.children
+            
+            if response.children == "" {
+                self.childrenStackView.isHidden = true
+            }else {
+                self.childrenValueLabel.text = response.children
+            }
+            
+            for idx in 0..<response.tmi.count {
+                let stackView = UIStackView()
+                stackView.axis = .horizontal
+                stackView.spacing = 10
+                stackView.alignment = .top
+                let symbolLabel = UILabel()
+                symbolLabel.text = "•"
+                symbolLabel.textColor = UIColor(named: "soulBlack")
+                symbolLabel.font = UIFont(name: "Pretendard-Regular", size: 16.0)
+                let contentLabel = UILabel()
+                contentLabel.text = "\(response.tmi[idx].content)"
+                contentLabel.textColor = UIColor(named: "soulBlack")
+                contentLabel.font = UIFont(name: "Pretendard-Regular", size: 16.0)
+                contentLabel.textAlignment = .left
+                contentLabel.numberOfLines = 0
+                stackView.addArrangedSubview(symbolLabel)
+                stackView.addArrangedSubview(contentLabel)
+                self.tmiContent.addArrangedSubview(stackView)
+            }
         }
     }
     

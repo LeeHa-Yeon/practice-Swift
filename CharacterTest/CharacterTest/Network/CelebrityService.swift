@@ -81,6 +81,9 @@ class CelebrityService {
                         print("성공했을때")
                         completion(successResponse)
                         break
+                    case 400 :
+                        print("이미 선택한 셀럽")
+                        break
                     default :
                         print("예상치 못한 에러")
                         break
