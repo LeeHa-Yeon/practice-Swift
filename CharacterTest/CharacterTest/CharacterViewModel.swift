@@ -10,9 +10,10 @@ import Foundation
 class CharacterViewModel {
     let celebrityService = CelebrityService.shared
     var routines: Observable2<[CelebrityRoutin]> = Observable2(value: [])
+    var celebrityId: Int = 1
     
     func requestData(celebrityData: @escaping (CelebrityInformation) -> (Void)){
-        celebrityService.requestShowCelebrity(celebrityId: 2) { response in
+        celebrityService.requestShowCelebrity(celebrityId: celebrityId) { response in
             celebrityData(response.celebrityInformation)
             self.routines.value = response.celebrityInformation.celebrityRoutines
         }
