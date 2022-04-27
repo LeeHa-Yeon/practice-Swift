@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		9F3916B22816E87E0036815A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3916B12816E87E0036815A /* AppDelegate.swift */; };
 		9F3916B42816E87E0036815A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3916B32816E87E0036815A /* SceneDelegate.swift */; };
-		9F3916B62816E87E0036815A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3916B52816E87E0036815A /* ViewController.swift */; };
-		9F3916B92816E87E0036815A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F3916B72816E87E0036815A /* Main.storyboard */; };
 		9F3916BB2816E8800036815A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F3916BA2816E8800036815A /* Assets.xcassets */; };
 		9F3916BE2816E8800036815A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F3916BC2816E8800036815A /* LaunchScreen.storyboard */; };
+		9F7204A3281982250053F73C /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7204A2281982250053F73C /* RepositoryListViewController.swift */; };
+		9F7204A7281990C20053F73C /* RepositoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7204A6281990C20053F73C /* RepositoryListCell.swift */; };
+		9F7204AE2819A3B90053F73C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7204AD2819A3B90053F73C /* Repository.swift */; };
+		BBFB5755DA2C5B714ED6E133 /* Pods_RxSiwft_GitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABF431A8D21F212DD996606 /* Pods_RxSiwft_GitHub.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		156DCE44152D14BEDBFA6070 /* Pods-RxSiwft_GitHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSiwft_GitHub.release.xcconfig"; path = "Target Support Files/Pods-RxSiwft_GitHub/Pods-RxSiwft_GitHub.release.xcconfig"; sourceTree = "<group>"; };
+		1D3A788E30015BB059DAB590 /* Pods-RxSiwft_GitHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSiwft_GitHub.debug.xcconfig"; path = "Target Support Files/Pods-RxSiwft_GitHub/Pods-RxSiwft_GitHub.debug.xcconfig"; sourceTree = "<group>"; };
 		9F3916AE2816E87E0036815A /* RxSiwft_GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSiwft_GitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3916B12816E87E0036815A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F3916B32816E87E0036815A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9F3916B52816E87E0036815A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9F3916B82816E87E0036815A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9F3916BA2816E8800036815A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F3916BD2816E8800036815A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F3916BF2816E8800036815A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F7204A2281982250053F73C /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		9F7204A6281990C20053F73C /* RepositoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCell.swift; sourceTree = "<group>"; };
+		9F7204AD2819A3B90053F73C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		CABF431A8D21F212DD996606 /* Pods_RxSiwft_GitHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSiwft_GitHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBFB5755DA2C5B714ED6E133 /* Pods_RxSiwft_GitHub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		481B4A758308B29C91ADB54D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CABF431A8D21F212DD996606 /* Pods_RxSiwft_GitHub.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6274F3C6CF122DC17DA446FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D3A788E30015BB059DAB590 /* Pods-RxSiwft_GitHub.debug.xcconfig */,
+				156DCE44152D14BEDBFA6070 /* Pods-RxSiwft_GitHub.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9F3916A52816E87E0036815A = {
 			isa = PBXGroup;
 			children = (
 				9F3916B02816E87E0036815A /* RxSiwft_GitHub */,
 				9F3916AF2816E87E0036815A /* Products */,
+				6274F3C6CF122DC17DA446FB /* Pods */,
+				481B4A758308B29C91ADB54D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +82,32 @@
 		9F3916B02816E87E0036815A /* RxSiwft_GitHub */ = {
 			isa = PBXGroup;
 			children = (
-				9F3916B12816E87E0036815A /* AppDelegate.swift */,
-				9F3916B32816E87E0036815A /* SceneDelegate.swift */,
-				9F3916B52816E87E0036815A /* ViewController.swift */,
-				9F3916B72816E87E0036815A /* Main.storyboard */,
-				9F3916BA2816E8800036815A /* Assets.xcassets */,
-				9F3916BC2816E8800036815A /* LaunchScreen.storyboard */,
 				9F3916BF2816E8800036815A /* Info.plist */,
+				9F7204A4281982300053F73C /* Applications */,
+				9F7204A52819823D0053F73C /* Resources */,
+				9F7204A2281982250053F73C /* RepositoryListViewController.swift */,
+				9F7204A6281990C20053F73C /* RepositoryListCell.swift */,
+				9F7204AD2819A3B90053F73C /* Repository.swift */,
 			);
 			path = RxSiwft_GitHub;
+			sourceTree = "<group>";
+		};
+		9F7204A4281982300053F73C /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+				9F3916B12816E87E0036815A /* AppDelegate.swift */,
+				9F3916B32816E87E0036815A /* SceneDelegate.swift */,
+				9F3916BC2816E8800036815A /* LaunchScreen.storyboard */,
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		9F7204A52819823D0053F73C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9F3916BA2816E8800036815A /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +117,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F3916C22816E8800036815A /* Build configuration list for PBXNativeTarget "RxSiwft_GitHub" */;
 			buildPhases = (
+				2A26F8975080B6C814BA2EFF /* [CP] Check Pods Manifest.lock */,
 				9F3916AA2816E87E0036815A /* Sources */,
 				9F3916AB2816E87E0036815A /* Frameworks */,
 				9F3916AC2816E87E0036815A /* Resources */,
+				EFB3C78B3A22B2F6211F309C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = RxSiwft_GitHub;
+			packageProductDependencies = (
+			);
 			productName = RxSiwft_GitHub;
 			productReference = 9F3916AE2816E87E0036815A /* RxSiwft_GitHub.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +158,8 @@
 				Base,
 			);
 			mainGroup = 9F3916A52816E87E0036815A;
+			packageReferences = (
+			);
 			productRefGroup = 9F3916AF2816E87E0036815A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,34 +176,69 @@
 			files = (
 				9F3916BE2816E8800036815A /* LaunchScreen.storyboard in Resources */,
 				9F3916BB2816E8800036815A /* Assets.xcassets in Resources */,
-				9F3916B92816E87E0036815A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A26F8975080B6C814BA2EFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxSiwft_GitHub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFB3C78B3A22B2F6211F309C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxSiwft_GitHub/Pods-RxSiwft_GitHub-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxSiwft_GitHub/Pods-RxSiwft_GitHub-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxSiwft_GitHub/Pods-RxSiwft_GitHub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9F3916AA2816E87E0036815A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F3916B62816E87E0036815A /* ViewController.swift in Sources */,
 				9F3916B22816E87E0036815A /* AppDelegate.swift in Sources */,
 				9F3916B42816E87E0036815A /* SceneDelegate.swift in Sources */,
+				9F7204AE2819A3B90053F73C /* Repository.swift in Sources */,
+				9F7204A3281982250053F73C /* RepositoryListViewController.swift in Sources */,
+				9F7204A7281990C20053F73C /* RepositoryListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9F3916B72816E87E0036815A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9F3916B82816E87E0036815A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9F3916BC2816E8800036815A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +366,7 @@
 		};
 		9F3916C32816E8800036815A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D3A788E30015BB059DAB590 /* Pods-RxSiwft_GitHub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,9 +377,9 @@
 				INFOPLIST_FILE = RxSiwft_GitHub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,12 +389,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		9F3916C42816E8800036815A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 156DCE44152D14BEDBFA6070 /* Pods-RxSiwft_GitHub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,9 +406,9 @@
 				INFOPLIST_FILE = RxSiwft_GitHub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +418,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
