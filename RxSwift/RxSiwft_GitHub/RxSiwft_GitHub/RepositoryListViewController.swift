@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class RepositoryListViewController: UITableViewController {
     private let organization = "Apple"
+    
+    // private let repositories = [Repository] 이전까지는 이렇게 시퀀스를 생성
+    private let repositories = BehaviorSubject<[Repository]>(value: [])
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
