@@ -10,7 +10,7 @@ import ExpyTableView
 
 class ViewController: UIViewController {
     let sectionList: Array<String> = ["Option1","Option2"]
-    let rowList: [String] = ["Suboption","Suboption","Suboption"]
+    var rowList: [String] = ["Suboption","Suboption","Suboption"]
     
     @IBOutlet weak var tableView: ExpyTableView!
     
@@ -43,7 +43,7 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
     
     // 선택시 어떤 셀이 선택되었는지 이벤트를 처리
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(sectionList[indexPath.row]) - \(rowList[indexPath.row])")
+        print("\(sectionList[indexPath.section]) - \(rowList[indexPath.row])")
     }
     
     // cell 높이
@@ -82,8 +82,39 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
     
     // true: 열고 닫는거 가능, false: 다 펼쳐진 상태로 고정
     func tableView(_ tableView: ExpyTableView, canExpandSection section: Int) -> Bool {
-        return true
+        return false
     }
+    
+    //Edit Mode에서 Row별 모드 지정
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if indexPath.row == 0 {
+            return .insert
+        } else {
+            return .delete
+        }
+    }
+     
+    //Edit Mode의 +, - 버튼
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            print("delete")
+            self.rowList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } else {
+            print("insert")
+            self.rowList.insert(self.rowList[indexPath.row], at: indexPath.row + 1)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    //Edit Mode의 Row 이동
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        print("\(self.rowList) from: \(sourceIndexPath.row) -> to: \(destinationIndexPath.row)")
+        let targetItem: String = self.rowList[sourceIndexPath.row]
+        self.rowList.remove(at: sourceIndexPath.row)
+        self.rowList.insert(targetItem, at: destinationIndexPath.row)
+    }
+
     
 }
 
