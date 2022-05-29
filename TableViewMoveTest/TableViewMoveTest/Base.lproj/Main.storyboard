@@ -28,7 +28,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHa-o0-Ywf">
-                                                    <rect key="frame" x="50" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                                             <color key="backgroundColor" red="0.57261931899999996" green="0.64750629660000003" blue="0.97650676970000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="KHa-o0-Ywf" firstAttribute="centerY" secondItem="ppF-Ts-kyT" secondAttribute="centerY" id="BV2-Tj-XC3"/>
-                                                <constraint firstItem="KHa-o0-Ywf" firstAttribute="leading" secondItem="ppF-Ts-kyT" secondAttribute="leadingMargin" constant="30" id="BsG-9l-vFG"/>
+                                                <constraint firstItem="KHa-o0-Ywf" firstAttribute="leading" secondItem="ppF-Ts-kyT" secondAttribute="leadingMargin" id="BsG-9l-vFG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -57,6 +57,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="leftConstraint" destination="cFo-dK-0LJ" id="wXq-vh-RqV"/>
                         <outlet property="tableView" destination="7Og-64-iJ7" id="mcT-aZ-vry"/>
                     </connections>
                 </viewController>
