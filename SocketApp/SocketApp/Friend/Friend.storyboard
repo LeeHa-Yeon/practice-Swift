@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--친구목록-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="FriendSB" automaticallyAdjustsScrollViewInsets="NO" id="Y6W-OH-hqX" customClass="FriendViewController" customModule="SocketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZQ-df-FoA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="firendCell" rowHeight="97" id="Gld-ai-C9J" customClass="FirendCell" customModule="SocketApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="97"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gld-ai-C9J" id="JP7-8F-hxe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="둥지" translatesAutoresizingMaskIntoConstraints="NO" id="7Ti-tE-Zd4">
+                                                    <rect key="frame" x="20" y="23.5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="59D-LC-gRc"/>
+                                                        <constraint firstAttribute="height" constant="50" id="xdw-1w-ynW"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yz-Ld-MVK">
+                                                    <rect key="frame" x="80" y="38" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Yz-Ld-MVK" firstAttribute="leading" secondItem="7Ti-tE-Zd4" secondAttribute="trailing" constant="10" id="9Kx-f2-Ng1"/>
+                                                <constraint firstItem="4Yz-Ld-MVK" firstAttribute="centerY" secondItem="JP7-8F-hxe" secondAttribute="centerY" id="CeY-X7-Tkl"/>
+                                                <constraint firstItem="7Ti-tE-Zd4" firstAttribute="leading" secondItem="JP7-8F-hxe" secondAttribute="leading" constant="20" id="EHJ-ki-2CN"/>
+                                                <constraint firstItem="7Ti-tE-Zd4" firstAttribute="centerY" secondItem="JP7-8F-hxe" secondAttribute="centerY" id="amo-Or-FhW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="4Yz-Ld-MVK" id="spF-rK-K5c"/>
+                                            <outlet property="profileImg" destination="7Ti-tE-Zd4" id="zdE-xh-EjE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kZQ-df-FoA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="69M-Zb-E4C"/>
+                            <constraint firstItem="kZQ-df-FoA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="DBM-5W-tIG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="kZQ-df-FoA" secondAttribute="bottom" id="lq0-qF-3YT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kZQ-df-FoA" secondAttribute="trailing" id="wdK-zu-ZLW"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="친구목록" image="star" catalog="system" selectedImage="star.fill" id="KYz-gb-xeG">
+                        <color key="badgeColor" red="0.35686274509999999" green="0.2784313725" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="kZQ-df-FoA" id="BZy-AB-dH4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127.53623188405798" y="128.57142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="둥지" width="1254" height="703"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
