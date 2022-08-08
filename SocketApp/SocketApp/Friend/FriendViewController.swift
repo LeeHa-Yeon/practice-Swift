@@ -30,6 +30,7 @@ class FriendViewController: UIViewController {
     func setTableView(){
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.sectionHeaderTopPadding = 0
     }
     
     func getData() {
@@ -69,7 +70,7 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
-//
+
 //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 //        return 0
 //    }
