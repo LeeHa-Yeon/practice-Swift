@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +44,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로컬 디비에 있는 마지막 대화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rp3-Oq-P8d">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로컬 디비에 있는 마지막 대화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rp3-Oq-P8d">
                                                             <rect key="frame" x="0.0" y="23" width="149.5" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.10629429768041232" green="0.10629429768041232" blue="0.10629429768041232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -114,21 +115,33 @@
                                                         <constraint firstAttribute="width" constant="50" id="iBm-DW-FRL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6t8-f6-HXF">
-                                                    <rect key="frame" x="83" y="40.5" width="200" height="38"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6t8-f6-HXF">
+                                                    <rect key="frame" x="83" y="16" width="200" height="87"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wz4-0r-zh4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="29"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대화 내용내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y5-z1-KuG">
-                                                            <rect key="frame" x="0.0" y="22" width="200" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="SfP-DZ-9Cb">
+                                                            <rect key="frame" x="0.0" y="37" width="200" height="50"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대화 내용내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y5-z1-KuG">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="71.5" height="50"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Qq-17-cVN">
+                                                                    <rect key="frame" x="150" y="0.0" width="50" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="50" id="pui-gO-LqP"/>
+                                                                        <constraint firstAttribute="width" secondItem="2Qq-17-cVN" secondAttribute="height" id="sla-SN-1bN"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="Nl2-fG-eN9"/>
@@ -136,29 +149,30 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="vhB-mk-Sai" secondAttribute="bottom" constant="10" id="0RU-SV-iwf"/>
                                                 <constraint firstItem="vhB-mk-Sai" firstAttribute="centerY" secondItem="KLw-mn-FiJ" secondAttribute="centerY" id="1UR-gk-iNO"/>
+                                                <constraint firstItem="6t8-f6-HXF" firstAttribute="top" secondItem="KLw-mn-FiJ" secondAttribute="topMargin" constant="5" id="3s5-a2-OUR"/>
                                                 <constraint firstItem="vhB-mk-Sai" firstAttribute="leading" secondItem="KLw-mn-FiJ" secondAttribute="leadingMargin" constant="5" id="4CO-1S-LVG"/>
                                                 <constraint firstItem="6t8-f6-HXF" firstAttribute="leading" secondItem="vhB-mk-Sai" secondAttribute="trailing" constant="8" id="TjI-pd-Rkh"/>
-                                                <constraint firstItem="vhB-mk-Sai" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KLw-mn-FiJ" secondAttribute="topMargin" constant="10" id="iP8-gS-FrR"/>
-                                                <constraint firstItem="6t8-f6-HXF" firstAttribute="centerY" secondItem="KLw-mn-FiJ" secondAttribute="centerY" id="mU7-wh-cH2"/>
+                                                <constraint firstItem="6t8-f6-HXF" firstAttribute="centerY" secondItem="KLw-mn-FiJ" secondAttribute="centerY" id="d14-9T-R5f"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6t8-f6-HXF" secondAttribute="bottom" constant="5" id="reK-Jg-ggg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imgmessageImgView" destination="2Qq-17-cVN" id="Wye-Xf-rVb"/>
                                             <outlet property="messageLabel" destination="6Y5-z1-KuG" id="5EY-aB-Shc"/>
                                             <outlet property="nameLabel" destination="wz4-0r-zh4" id="Dl3-iQ-l5O"/>
                                             <outlet property="profileImg" destination="vhB-mk-Sai" id="pFr-er-TAv"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myMessageCell" rowHeight="72" id="Lhg-kY-QQm" customClass="MyMessageCell" customModule="SocketApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="163.5" width="414" height="72"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myMessageCell" rowHeight="97" id="Lhg-kY-QQm" customClass="MyMessageCell" customModule="SocketApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="163.5" width="414" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lhg-kY-QQm" id="5BH-yS-iwl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대화 내용내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfb-ZA-7Jo">
-                                                    <rect key="frame" x="302.5" y="16" width="71.5" height="40"/>
+                                                    <rect key="frame" x="302.5" y="16" width="71.5" height="65"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -226,7 +240,9 @@
                             <constraint firstItem="YUN-Ob-3Px" firstAttribute="top" secondItem="e3z-Rv-moC" secondAttribute="bottom" id="oXm-Hi-u0g"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="우영우 채팅방" id="cbF-3M-1Mg"/>
+                    <navigationItem key="navigationItem" title="우영우 채팅방" id="cbF-3M-1Mg">
+                        <barButtonItem key="backBarButtonItem" title=" " id="B1V-1k-otR"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomContainerMargin" destination="oNQ-og-juN" id="gf7-e8-T3h"/>
                         <outlet property="inputTextField" destination="xIM-yc-RI2" id="rQm-lK-P6j"/>
@@ -236,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGU-1v-KuD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1884.057971014493" y="146.65178571428569"/>
+            <point key="canvasLocation" x="3000.0000000000005" y="137.94642857142856"/>
         </scene>
         <!--채팅목록-->
         <scene sceneID="K38-2h-mlg">

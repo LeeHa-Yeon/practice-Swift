@@ -123,11 +123,11 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
-            header.textLabel?.textColor = UIColor.black
+            header.textLabel?.textColor = UIColor.white
             header.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
 //            header.textLabel?.frame = header.frame
 //            header.textLabel?.textAlignment = .center
-        view.tintColor = UIColor.yellow
+        view.tintColor = UIColor(red: 91, green: 71, blue: 244, alpha: 0)
         
         }
     

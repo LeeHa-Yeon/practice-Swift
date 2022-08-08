@@ -7,10 +7,15 @@
 
 import UIKit
 import Starscream
+import RealmSwift
+import Kingfisher
 
 class RoomViewController: UIViewController {
     
+    var realm: Realm!
     var socket: WebSocket?
+    var opponentName: String?
+    
     private var originBottomMargin: CGFloat = 0
     
     @IBOutlet weak var tableView: UITableView!
@@ -23,12 +28,16 @@ class RoomViewController: UIViewController {
         inputTextField.resignFirstResponder()
         if let content = inputTextField.text {
             sendMessage(content)
-            messages.append(MessageWithType(content: content, type: .user))
+            messages.append(UserChatting(to: "user", from: "info", message: content, type: "message"))
             updateMessage()
+            
+            try! realm.write({
+                realm.add(UserChatting(to: "user", from: "info" , message: content, type: "message"))
+            })
         }
         inputTextField.text = ""
     }
-    var messages = [MessageWithType]()
+    var messages = [UserChatting]()
     
     deinit {
         socket?.disconnect()
@@ -38,14 +47,15 @@ class RoomViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setRealm()
         setNavigation()
-        setTableView()
-        setData()
         setUI()
+        setTableView()
         setKeyboardBottomMargin()
         setTextField()
         connect()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -66,8 +76,23 @@ class RoomViewController: UIViewController {
         
     }
     
+    func setRealm(){
+        realm = try! Realm()
+        let loadMessage = realm.objects(UserChatting.self)
+        
+        for item in loadMessage {
+            messages.append(UserChatting(to: item.to, from: item.from, message: item.message, type: item.type))
+        }
+        
+    }
+    
     func setNavigation(){
-        navigationItem.backButtonTitle = ""
+        self.navigationController?.view.tintColor = UIColor.black
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
+        
     }
     
     func setTextField(){
@@ -77,6 +102,7 @@ class RoomViewController: UIViewController {
     func setTableView(){
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     // 채팅 스크롤 아래로 내리기
@@ -92,17 +118,6 @@ class RoomViewController: UIViewController {
     func updateMessage() {
         tableView.reloadData()
         scrollLastOfTableView()
-    }
-    
-    func setData(){
-        messages.append(MessageWithType(content: "안녕안녕", type: .user))
-        messages.append(MessageWithType(content: "반가워", type: .user))
-        messages.append(MessageWithType(content: "안녕!!", type: .info))
-        messages.append(MessageWithType(content: "좋은 아침이야", type: .info))
-        messages.append(MessageWithType(content: "뭐하고있어?", type: .info))
-        messages.append(MessageWithType(content: "오늘 휴가 ~", type: .user))
-        messages.append(MessageWithType(content: "부럽당부럽당부럽당부럽당부럽당부럽당부럽당부럽당부럽당부럽당부럽당부럽당부럽당부럽당", type: .info))
-        messages.append(MessageWithType(content: "ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ", type: .user))
     }
     
 }
@@ -139,8 +154,11 @@ extension RoomViewController: WebSocketDelegate {
     }
     
     // 메시지 수신
-    func receivedMessage(_ message: String) {
-        messages.append(MessageWithType(content: message, type: .info))
+    func receivedMessage(_ message: String, _ type: String) {
+        messages.append(UserChatting(to: "info", from: "user", message: message, type: type))
+        try! realm.write({
+            realm.add(UserChatting(to: "info", from: "user" , message: message, type: type))
+        })
         updateMessage()
 
     }
@@ -156,11 +174,17 @@ extension RoomViewController: WebSocketDelegate {
             print("received text----> \(text)")
             
             guard let data = text.data(using: .utf8),
-                  let jsonData = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                  let messageType = jsonData["message"] as? String else {
+                  let jsonData = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                   else { return }
+            guard let messageType = jsonData["message"] as? String else {
+                guard let imageType = jsonData["image"] as? String else {
+                    return
+                }
+                self.receivedMessage(imageType, "image")
                 return
             }
-            self.receivedMessage(messageType)
+            self.receivedMessage(messageType, "message")
+            
             
         case .binary(let data):
             print("Received data: \(data.count)")
@@ -211,7 +235,10 @@ extension RoomViewController {
             UIView.animate(withDuration: animationDuration){
                 self.bottomContainerMargin.constant = keyboardHeight - self.view.safeAreaInsets.bottom + 10
                 self.view.layoutIfNeeded()
-                self.scrollLastOfTableView()
+                if self.messages.count > 0 {
+                    self.scrollLastOfTableView()
+                }
+                
             }
         }
     }
@@ -232,24 +259,47 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch messages[indexPath.row].type {
-        case .user :
+        switch messages[indexPath.row].to {
+        case "user" :
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as? MyMessageCell else {
                 return UITableViewCell()
             }
-            cell.messageLabel.text = "\(messages[indexPath.row].content)"
+            cell.messageLabel.text = "\(messages[indexPath.row].message)"
             return cell
-        case .info :
+        case "info" :
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "friendMessageCell", for: indexPath) as? FriendMessageCell else {
                 return UITableViewCell()
             }
-            cell.messageLabel.text = "\(messages[indexPath.row].content)"
+            cell.nameLabel.text = opponentName
+            if messages[indexPath.row].type == "message" {
+                cell.messageLabel.text = "\(messages[indexPath.row].message)"
+                cell.imgmessageImgView.isHidden = true
+                cell.messageLabel.isHidden = false
+            }else {
+                let url = URL(string: messages[indexPath.row].message)
+                cell.imgmessageImgView.kf.setImage(with: url)
+                cell.messageLabel.isHidden = true
+                cell.imgmessageImgView.isHidden = false
+            }
+            
             return cell
+        default:
+            assert(false)
         }
     }
     
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        try! realm.write {
+//
+//            realm.deleteAll()
+//        }
+//        tableView.reloadData()
+//
+//    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return tableView.rowHeight
     }
     
 }
@@ -259,6 +309,7 @@ class FriendMessageCell: UITableViewCell {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var imgmessageImgView: UIImageView!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -272,20 +323,4 @@ class FriendMessageCell: UITableViewCell {
 
 class MyMessageCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
-}
-
-enum MessageType {
-    case user
-    case info
-}
-
-
-struct MessageWithType {
-    var content: String
-    var type: MessageType
-    
-    init(content: String, type: MessageType){
-        self.content = content
-        self.type = type
-    }
 }
