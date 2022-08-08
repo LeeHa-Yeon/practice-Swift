@@ -26,5 +26,4 @@ class UserChatting: Object {
         self.type = type
     }
     
-    
 }

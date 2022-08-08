@@ -8,10 +8,6 @@
 import Foundation
 import Alamofire
 
-class Network {
-    static let BasicURL =  "https://7u6czzkpd6omkkpe4gipqgpxvy0vwxdn.lambda-url.ap-northeast-2.on.aws"
-}
-
 class FriendService {
     static let shared = FriendService()
     private init() {}
@@ -63,15 +59,4 @@ class FriendService {
         }
     }
     
-}
-
-
-struct FriendResponse: Decodable {
-    let statusCode: Int
-    let data: [FriendModel]
-}
-
-struct FriendModel: Decodable {
-    let name: String
-    let profile: String
 }

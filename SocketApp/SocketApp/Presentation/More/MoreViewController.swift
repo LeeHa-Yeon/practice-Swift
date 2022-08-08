@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MoreViewController.swift
 //  SocketApp
 //
 //  Created by hayeon.lee on 2022/08/04.
@@ -7,13 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-
