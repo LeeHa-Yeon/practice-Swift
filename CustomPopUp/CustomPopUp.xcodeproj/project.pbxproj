@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		8460589F28A1F7AA007EE2B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460589E28A1F7AA007EE2B3 /* AppDelegate.swift */; };
 		846058A128A1F7AA007EE2B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058A028A1F7AA007EE2B3 /* SceneDelegate.swift */; };
-		846058A328A1F7AA007EE2B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058A228A1F7AA007EE2B3 /* ViewController.swift */; };
+		846058A328A1F7AA007EE2B3 /* FirstPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058A228A1F7AA007EE2B3 /* FirstPopUpViewController.swift */; };
 		846058A628A1F7AA007EE2B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846058A428A1F7AA007EE2B3 /* Main.storyboard */; };
 		846058A828A1F7AD007EE2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846058A728A1F7AD007EE2B3 /* Assets.xcassets */; };
 		846058AB28A1F7AD007EE2B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846058A928A1F7AD007EE2B3 /* LaunchScreen.storyboard */; };
 		846058B628A1F7AD007EE2B3 /* CustomPopUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058B528A1F7AD007EE2B3 /* CustomPopUpTests.swift */; };
 		846058C028A1F7AD007EE2B3 /* CustomPopUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058BF28A1F7AD007EE2B3 /* CustomPopUpUITests.swift */; };
 		846058C228A1F7AD007EE2B3 /* CustomPopUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058C128A1F7AD007EE2B3 /* CustomPopUpUITestsLaunchTests.swift */; };
+		846058D128A2012C007EE2B3 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058D028A2012C007EE2B3 /* BasicViewController.swift */; };
+		846058D328A2270A007EE2B3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058D228A2270A007EE2B3 /* UIViewController.swift */; };
+		846058D528A233C9007EE2B3 /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058D428A233C9007EE2B3 /* UIControl.swift */; };
+		846058D828A24566007EE2B3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 846058D728A24566007EE2B3 /* SnapKit */; };
+		846058DB28A24590007EE2B3 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 846058DA28A24590007EE2B3 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +44,7 @@
 		8460589B28A1F7AA007EE2B3 /* CustomPopUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomPopUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8460589E28A1F7AA007EE2B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846058A028A1F7AA007EE2B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		846058A228A1F7AA007EE2B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		846058A228A1F7AA007EE2B3 /* FirstPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPopUpViewController.swift; sourceTree = "<group>"; };
 		846058A528A1F7AA007EE2B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		846058A728A1F7AD007EE2B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846058AA28A1F7AD007EE2B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,9 @@
 		846058BB28A1F7AD007EE2B3 /* CustomPopUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomPopUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		846058BF28A1F7AD007EE2B3 /* CustomPopUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUpUITests.swift; sourceTree = "<group>"; };
 		846058C128A1F7AD007EE2B3 /* CustomPopUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		846058D028A2012C007EE2B3 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		846058D228A2270A007EE2B3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		846058D428A233C9007EE2B3 /* UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846058D828A24566007EE2B3 /* SnapKit in Frameworks */,
+				846058DB28A24590007EE2B3 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,11 +111,14 @@
 			children = (
 				8460589E28A1F7AA007EE2B3 /* AppDelegate.swift */,
 				846058A028A1F7AA007EE2B3 /* SceneDelegate.swift */,
-				846058A228A1F7AA007EE2B3 /* ViewController.swift */,
 				846058A428A1F7AA007EE2B3 /* Main.storyboard */,
+				846058D028A2012C007EE2B3 /* BasicViewController.swift */,
+				846058A228A1F7AA007EE2B3 /* FirstPopUpViewController.swift */,
 				846058A728A1F7AD007EE2B3 /* Assets.xcassets */,
 				846058A928A1F7AD007EE2B3 /* LaunchScreen.storyboard */,
 				846058AC28A1F7AD007EE2B3 /* Info.plist */,
+				846058D228A2270A007EE2B3 /* UIViewController.swift */,
+				846058D428A233C9007EE2B3 /* UIControl.swift */,
 			);
 			path = CustomPopUp;
 			sourceTree = "<group>";
@@ -143,6 +156,10 @@
 			dependencies = (
 			);
 			name = CustomPopUp;
+			packageProductDependencies = (
+				846058D728A24566007EE2B3 /* SnapKit */,
+				846058DA28A24590007EE2B3 /* Then */,
+			);
 			productName = CustomPopUp;
 			productReference = 8460589B28A1F7AA007EE2B3 /* CustomPopUp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +232,10 @@
 				Base,
 			);
 			mainGroup = 8460589228A1F7AA007EE2B3;
+			packageReferences = (
+				846058D628A24566007EE2B3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				846058D928A24590007EE2B3 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 8460589C28A1F7AA007EE2B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,9 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				846058A328A1F7AA007EE2B3 /* ViewController.swift in Sources */,
+				846058A328A1F7AA007EE2B3 /* FirstPopUpViewController.swift in Sources */,
+				846058D128A2012C007EE2B3 /* BasicViewController.swift in Sources */,
 				8460589F28A1F7AA007EE2B3 /* AppDelegate.swift in Sources */,
 				846058A128A1F7AA007EE2B3 /* SceneDelegate.swift in Sources */,
+				846058D328A2270A007EE2B3 /* UIViewController.swift in Sources */,
+				846058D528A233C9007EE2B3 /* UIControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +626,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		846058D628A24566007EE2B3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		846058D928A24590007EE2B3 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		846058D728A24566007EE2B3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 846058D628A24566007EE2B3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		846058DA28A24590007EE2B3 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 846058D928A24590007EE2B3 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8460589328A1F7AA007EE2B3 /* Project object */;
 }
