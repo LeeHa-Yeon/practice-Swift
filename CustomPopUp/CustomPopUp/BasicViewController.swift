@@ -7,17 +7,11 @@
 
 import UIKit
 
+
 class BasicViewController: UIViewController {
     
     @IBAction func testBtnTapped(_ sender: Any) {
-        print("눌리는중?")
-        
-//        guard let popupVC = self.storyboard?.instantiateViewController(withIdentifier: "popupSB") as? FirstPopUpViewController else {
-//                    return
-//                }
-//        popupVC.modalPresentationStyle = .fullScreen
-//                self.present(popupVC, animated: true)
-        showPopUp(title: "타이이이이틀", content: "메세지이이이이이", leftButtonTitle: "취소오", rightButtonTitle: "화기인", leftActionCompletion: nil) {
+        showPopUp(title: "방 나가기", content: "채팅 내용은 다시 복구되지 않습니다.\n정말 나가시겠어요?", leftButtonTitle: "취소오", rightButtonTitle: "나가기", leftActionCompletion: nil) {
             print("테스트중~~")
         }
     }

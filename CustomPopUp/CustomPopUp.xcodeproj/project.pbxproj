@@ -21,6 +21,7 @@
 		846058D528A233C9007EE2B3 /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058D428A233C9007EE2B3 /* UIControl.swift */; };
 		846058D828A24566007EE2B3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 846058D728A24566007EE2B3 /* SnapKit */; };
 		846058DB28A24590007EE2B3 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 846058DA28A24590007EE2B3 /* Then */; };
+		846058DD28A2642E007EE2B3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846058DC28A2642E007EE2B3 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		846058D028A2012C007EE2B3 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		846058D228A2270A007EE2B3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		846058D428A233C9007EE2B3 /* UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
+		846058DC28A2642E007EE2B3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				846058AC28A1F7AD007EE2B3 /* Info.plist */,
 				846058D228A2270A007EE2B3 /* UIViewController.swift */,
 				846058D428A233C9007EE2B3 /* UIControl.swift */,
+				846058DC28A2642E007EE2B3 /* UIColor.swift */,
 			);
 			path = CustomPopUp;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846058A328A1F7AA007EE2B3 /* FirstPopUpViewController.swift in Sources */,
+				846058DD28A2642E007EE2B3 /* UIColor.swift in Sources */,
 				846058D128A2012C007EE2B3 /* BasicViewController.swift in Sources */,
 				8460589F28A1F7AA007EE2B3 /* AppDelegate.swift in Sources */,
 				846058A128A1F7AA007EE2B3 /* SceneDelegate.swift in Sources */,
