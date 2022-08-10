@@ -24,12 +24,15 @@ extension UIViewController {
                             rightButtonTitle: String,
                             leftActionCompletion: (() -> Void)?,
                             rightActionCompletion: (() -> Void)?){
-        popUpVC.addActionBtn(title: leftButtonTitle, titleColor: UIColor(hex: 0x575A63)) {
-            popUpVC.dismiss(animated: false, completion: leftActionCompletion)
+        if leftActionCompletion != nil {
+            popUpVC.addActionBtn(title: leftButtonTitle, titleColor: UIColor(hex: 0x575A63)) {
+                popUpVC.dismiss(animated: false, completion: leftActionCompletion)
+            }
         }
-        
-        popUpVC.addActionBtn(title: rightButtonTitle, titleColor: UIColor(hex: 0x5B47F4)) {
-            popUpVC.dismiss(animated: false, completion: rightActionCompletion)
+        if rightActionCompletion != nil {
+            popUpVC.addActionBtn(title: rightButtonTitle, titleColor: UIColor(hex: 0x5B47F4)) {
+                popUpVC.dismiss(animated: false, completion: rightActionCompletion)
+            }
         }
 
         present(popUpVC, animated: false, completion: nil)

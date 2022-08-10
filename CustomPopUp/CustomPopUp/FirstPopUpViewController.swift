@@ -86,6 +86,7 @@ class FirstPopUpViewController: UIViewController {
 //        button.layer.cornerRadius = 4.0
 //        button.layer.masksToBounds = true
         
+        
         button.addAction(for: .touchUpInside) { _ in
             completion?()
         }
@@ -137,19 +138,23 @@ class FirstPopUpViewController: UIViewController {
     }
     
     private func setupView(){
-        view.backgroundColor = .black.withAlphaComponent(0.3)
+        view.backgroundColor = .black.withAlphaComponent(0.7)
         mainView.addSubview(entireStackView)
         containerViewStackView.addArrangedSubview(mainView)
         view.addSubview(containerViewStackView)
     }
     
     private func addSubViews(){
-        if let titleLabel = titleLabel {
-            labelStackView.addArrangedSubview(titleLabel)
+        if let _ = titleLabel?.text {
+            if let titleLabel = titleLabel {
+                labelStackView.addArrangedSubview(titleLabel)
+            }
         }
         
-        if let contentLabel = contentLabel {
-            labelStackView.addArrangedSubview(contentLabel)
+        if let _ = contentLabel?.text {
+            if let contentLabel = contentLabel {
+                labelStackView.addArrangedSubview(contentLabel)
+            }
         }
         
 //        if let lastView = containerViewStackView.subviews.last {
@@ -178,6 +183,13 @@ class FirstPopUpViewController: UIViewController {
             $0.top.equalToSuperview().inset(32)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(16)
+        }
+        labelStackView.snp.makeConstraints{
+            $0.height.greaterThanOrEqualTo(57)
+        }
+        
+        buttonStackView.snp.makeConstraints{
+            $0.height.equalTo(48)
         }
         
     }

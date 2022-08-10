@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiH-8s-4K4">
-                                <rect key="frame" x="191" y="431" width="32" height="34"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="버튼">
+                                <state key="normal" backgroundImage="basicBgImage">
                                     <color key="titleColor" systemColor="tintColor"/>
                                 </state>
                                 <connections>
@@ -30,8 +30,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GiH-8s-4K4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a4M-hf-kMo"/>
-                            <constraint firstItem="GiH-8s-4K4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yZG-dj-vYJ"/>
+                            <constraint firstItem="GiH-8s-4K4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3JK-TD-gnE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GiH-8s-4K4" secondAttribute="bottom" id="Whr-Ra-Zf4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GiH-8s-4K4" secondAttribute="trailing" id="a6f-e9-Q2t"/>
+                            <constraint firstItem="GiH-8s-4K4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yda-A7-fS9"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,6 +43,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="basicBgImage" width="122" height="252"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
